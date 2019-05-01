@@ -44,7 +44,7 @@ class ArticleController extends Controller
                 $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
                 $extension=$request->file('article_image')->getClientOriginalExtension();
                 $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('article_image')->storeAs('public/article_images',$fileNameToStore);
+                $request->file('article_image')->storeAs('public\articles_images\siteuploads',$fileNameToStore);
            }else{
             $fileNameToStore='noimage.jpg';
            }
@@ -96,14 +96,15 @@ class ArticleController extends Controller
     {
         
          $articles=Article::find($id);
-  if($request->hasFile('article_image')){
-                $filenameWithExt=$request->file('article_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('article_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('article_image')->storeAs('public/article_images',$fileNameToStore);
-                 $articles->article_image=$fileNameToStore;
-           }
+        if($request->hasFile('article_image')){
+            $filenameWithExt=$request->file('article_image')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('article_image')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('article_image')->storeAs('public\articles_images\siteuploads',$fileNameToStore);
+            $articles->article_image=$fileNameToStore;
+        }
+
     
     $articles->title=$request->input('title');
     $articles->body=$request->input('body');

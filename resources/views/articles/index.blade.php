@@ -33,7 +33,7 @@
 			
 			<div class="col-md-12 col-sm-12">
 				
-     				
+
 					<h3>{{$articles->title}}</h3>
 					<div>{!!$articles->body!!}</div>
 					<div class="articletime">&#xe023; &nbsp;{{$articles->created_at}}</div><br>

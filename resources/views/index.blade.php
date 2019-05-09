@@ -186,13 +186,14 @@ use Illuminate\Support\Facades\Crypt;?>
                             @endif
 
                         </div>
+                        <div  style="margin-top: 13px;float: right">
+                            <iframe width="100%" height="45%"
+                                    src="https://www.youtube.com/embed/yzX4NTRoLVI?rel=0">
+                            </iframe>
+                        </div>
                     </div>
 
-                    <div class="col-md-12" style="margin-top: 13px">
-                        <iframe width="100%" height="45%"
-                                src="https://www.youtube.com/embed/yzX4NTRoLVI?rel=0">
-                        </iframe>
-                    </div>
+
 
                     {{--<div class="col-md-12">--}}
                         {{--<div class="right_bar" style="margin-top: 50px;">--}}

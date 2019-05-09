@@ -59,6 +59,13 @@ class PagesController extends Controller
      public function activities_publictalk_create(){
         return view('activities.public_talk.create');
     }
+    public function annual_session(){
+        return view('annual_session.index');
+    }
+    public function annual_session_create(){
+        return view('annual_session.create');
+    }
+
      public function activities_technical_session(){
         return view('activities.technical_session.index');
     }
@@ -99,6 +106,7 @@ class PagesController extends Controller
     public function ljd_medal_create(){
         return view('awards.ljd_medal.create');
     }
+
     public function ananda_coomaraswamy_medal(){
         return view('awards.ananda_coomaraswamy_medal.index');
     }
@@ -133,7 +141,7 @@ class PagesController extends Controller
         return view('publications.abstract_volume.create');
     }
 
-        public function news_letters(){
+    public function news_letters(){
         return view('publications.news_letters.index');
     }
     public function news_letters_create(){
@@ -166,6 +174,21 @@ class PagesController extends Controller
       public function iesocom_create(){
         return view('sleso.iesocom.create');
     }
+
+    public function sleso_members(){
+        return view('sleso.sleso_members.index');
+    }
+    public function sleso_members_create(){
+        return view('sleso.sleso_members.create');
+    }
+
+    public function sleso_past_members(){
+        return view('sleso.sleso_past_members.index');
+    }
+    public function sleso_past_members_create(){
+        return view('sleso.sleso_past_members.create');
+    }
+
     public function presentexcom(){
         return view('excom.presentexcom.index');
     }
@@ -175,8 +198,18 @@ class PagesController extends Controller
      public function pastexcom(){
         return view('excom.pastexcom.index');
     }
+    public function pastexcom_create(){
+        return view('excom.pastexcom.create');
+    }
      public function pastpresidents(){
         return view('excom.pastpresidents.index');
+    }
+    public function pastpresidents_create(){
+        return view('excom.pastpresidents.create');
+    }
+
+    public function presentexcom_create(){
+        return view('excom.presentexcom.create');
     }
      public function lifemembers(){
         return view('lifemembers');

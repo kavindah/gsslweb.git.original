@@ -42,10 +42,7 @@
 			<div style="height: auto;">
 			@if(count($annual_trips)>0)
 			@foreach($annual_trips as $annual_trip)
-				<div style="font-weight: bold;font-size:18px; ">{{$annual_trip->title}}</div>
-				<div style="height: auto;background-color: #ffffff;font-size:15px;overflow: auto;text-align: justify;">{!!$annual_trip->body!!}</div>
-				<dir><img src="/storage/annualtrip_images/{{$annual_trip->annualtrip_image}}" width="80%"onerror='this.style.display = "none"'></dir>
-				<div style="color: gray; font-size:10px;">{{$annual_trip->created_at}}</div>
+				<div style="font-weight: bold;font-size:16px; "><a href="annual_trip/{{$annual_trip->id}}"> {{$annual_trip->title}}</a></div>
 			</div>
 		@if(!Auth::guest())
 		@if(Auth::user()->id==$annual_trip->user_id)

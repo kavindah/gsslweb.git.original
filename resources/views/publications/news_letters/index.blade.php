@@ -49,7 +49,7 @@
 			@foreach($news_letters as $news_letter)
 				<div style="text-align: justify;width: 95%;">
 				<div style="color:black; font-weight:bold;">
-					{{$news_letter->title}}
+					<a href="news_letters/{{$news_letter->id}}"> {{$news_letter->title}}</a>
 				</div>
 				
 				{!!$news_letter->body!!}

@@ -59,6 +59,7 @@ class abvolumecontroller extends Controller
         $data = DB::table('abstactvolumemores')
             ->select('*')
             ->where('abstract_volume_id', $id)
+            ->orderBy('created_at','desc')
             ->get();
 
         return view('publications.abstract_volume.abstract_volume_more.index', ['abvolumesmores' => $data], compact('id'));

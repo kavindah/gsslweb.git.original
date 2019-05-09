@@ -49,7 +49,7 @@ Route::get('/journalgssl','PagesController@journalgssl');
 Route::get('/activities','PagesController@activities');
 Route::get('/activities_home','PagesController@activities_home');
 Route::get('/activities_publictalk','PagesController@activities_publictalk');
-Route::get('/activities_technical_session','PagesController@activities_technical_session');
+//Route::get('/activities_technical_session','PagesController@activities_technical_session');
 Route::get('/activities_field_excursion','PagesController@activities_field_excursion');
 Route::get('/activities_annual_trip','PagesController@activities_annual_trip');
 Route::get('/awards','PagesController@awards');  
@@ -70,10 +70,13 @@ Route::get('/slesocom','PagesController@slesocom');
 Route::get('/iesocom','PagesController@iesocom');
 Route::get('/excom','PagesController@excom');
 Route::get('/presentexcom','PagesController@presentexcom');
-Route::get('/pastexcom','PagesController@pastexcom');
 Route::get('/pastpresidents','PagesController@pastpresidents');
 Route::get('/lifemembers','PagesController@lifemembers');
 Route::get('/journal_submit','PagesController@journal_submit');
+Route::get('/annual_session','PagesController@annual_session');
+Route::get('/pastexcom','PagesController@pastexcom');
+Route::get('/sleso_members','PagesController@sleso_members');
+Route::get('/sleso_past_members','PagesController@sleso_past_members');
 
 
 
@@ -118,8 +121,11 @@ Route::get('new_workshop_create',['middleware'=>['auth','admin'],'uses'=>'PagesC
 Route::resource('publictalks','publictalkcontroller');
 Route::get('activities_publictalk_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@activities_publictalk_create']);
 
-Route::resource('technical_sessions','technicalsessoioncontroller');
+Route::resource('activities_technical_session','technicalsessoioncontroller');
 Route::get('activities_technical_session_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@activities_technical_session_create']);
+
+Route::resource('technical_session_more','technicalsessionmorecontroller');
+Route::get('technical_session_more_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@technical_session_more_create']);
 
 Route::resource('field_excursion','fieldexcrusioncontroller');
 Route::get('activities_field_excursion_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@activities_field_excursion_create']);
@@ -162,11 +168,34 @@ Route::get('abstract_volume_create',['middleware'=>['auth','admin'],'uses'=>'Pag
 Route::resource('abstract_volume_more','abstactvolumemorecontroller');
 Route::get('abstract_volume_more_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@abstract_volume_more_create']);
 
+Route::resource('workshop_more','workshopmorecontroller');
+//Route::get('abstract_volume_more_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@abstract_volume_more_create']);
+
+Route::resource('field_excursion_more','fieldexcursionmorecontroller');
+
+Route::resource('annual_trip_more','annualtripmorecontroller');
+
 Route::resource('news_letters','newslettercontroller');
 Route::get('news_letters_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@news_letters_create']);
 
+Route::resource('news_letters_more','newslettersmorecontroller');
+Route::get('news_letters_more_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@news_letters_more_create']);
+
 Route::resource('special_publications','specialpublicationscontroller');
 Route::get('special_publications_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@special_publications_create']);
+
+Route::resource('annual_session','annualsessioncontroller');
+Route::get('annual_session_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@annual_session_create']);
+
+Route::resource('pastexcom','pastexcomcontroller');
+Route::get('pastexcom_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@pastexcom_create']);
+
+Route::resource('presentexcom','presentexcomcontroller');
+Route::get('presentexcom_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@presentexcom_create']);
+
+Route::resource('pastpresidents','pastpresidentcontroller');
+Route::get('pastpresidents_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@pastpresidents_create']);
+
 
 Route::resource('gssl_book','gsslbookcontroller');
 Route::get('gssl_book_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@gssl_book_create']);
@@ -179,6 +208,12 @@ Route::get('iesocom_create',['middleware'=>['auth','admin'],'uses'=>'PagesContro
 
 Route::resource('calendar_event','calendercontroller');
 Route::get('calendar_event_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@calendar_event_create']);
+
+Route::resource('sleso_members','slesomemberscontroller');
+Route::get('sleso_members_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@sleso_members_create']);
+
+Route::resource('sleso_past_members','slesopastmemberscontroller');
+Route::get('sleso_past_members_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@sleso_past_members_create']);
 
 Route::resource('focuses','focusescontroller');
 Route::get('focuses_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@focuses_create']);
@@ -198,7 +233,7 @@ Route::get('/',function(){
 });
 
 Route::get('/article_published',function(){
-	$articles=Article::orderBy('created_at','desc')->paginate(10);
+	$articles=Article::orderBy('created_at','desc')->paginate(6);
        return view('article_published')->with('articles',$articles);
 });
 
@@ -290,6 +325,26 @@ Route::get('/gssl_book',function(){
         return view('publications.gssl_book.index')->with('gssl_books',$gsslbook);
 });
 
+Route::get('/annual_session',function(){
+    $annualsession=\App\annualsession::orderBy('created_at','desc')->paginate(10);
+    return view('annual_session.index')->with('annual_sessions',$annualsession);
+});
+
+Route::get('/pastexcom',function(){
+    $pastexcoms=\App\pastexcom::orderBy('created_at','desc')->paginate(10);
+    return view('excom.pastexcom.index')->with('pastexcoms',$pastexcoms);
+});
+
+Route::get('/presentexcom',function(){
+    $presentexcoms=\App\presentexcom::orderBy('created_at','desc')->paginate(10);
+    return view('excom.presentexcom.index')->with('presentexcoms',$presentexcoms);
+});
+
+Route::get('/pastpresidents',function(){
+    $pastpresidents=\App\pastpresident::orderBy('created_at','desc')->paginate(10);
+    return view('excom.pastpresidents.index')->with('pastpresidents',$pastpresidents);
+});
+
 Route::get('/slesocom',function(){
   $slesocom=slesocom::orderBy('created_at','desc')->paginate(10);
         return view('sleso.slesocom.index')->with('slesocs',$slesocom);
@@ -304,6 +359,17 @@ Route::get('/lifemembers',function(){
     $lifemembers=DB::table('member_reqs')->get();
     return view('lifemembers')->with('lifemembers',$lifemembers);
 });
+
+Route::get('/sleso_members',function(){
+    $sleso_members=\App\slesomembers::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.sleso_members.index')->with('sleso_members',$sleso_members);
+});
+
+Route::get('/sleso_past_members',function(){
+    $sleso_past_members=\App\slesopastmembers::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.sleso_past_members.index')->with('sleso_past_members',$sleso_past_members);
+});
+
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@getReset');
 Route::post('password/reset', 'Auth\ResetPasswordController@postReset');
 

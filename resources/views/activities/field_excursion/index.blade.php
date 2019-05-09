@@ -42,10 +42,7 @@
 			<div style="height: auto;">
 			@if(count($field_excursions)>0)
 			@foreach($field_excursions as $field_excursion)
-				<div style="font-weight: bold;font-size:18px; ">{{$field_excursion->title}}</div>
-				<div style="height: auto;background-color: #ffffff;font-size:15px;overflow: auto;text-align: justify;">{!!$field_excursion->body!!}</div>
-				<dir><img src="/storage/fieldexcrusion_images/{{$field_excursion->fieldexcursion_image}}" width="80%"onerror='this.style.display = "none"'></dir>
-				<div style="color: gray; font-size:10px;">{{$field_excursion->created_at}}</div>
+				<div style="font-weight: bold;font-size:16px;"><a href="field_excursion/{{$field_excursion->id}}"> {{$field_excursion->title}}</a></div>
 			</div>
 		@if(!Auth::guest())
 		@if(Auth::user()->id==$field_excursion->user_id)

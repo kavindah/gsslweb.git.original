@@ -5,7 +5,7 @@
 	
 @section('contents')
 
-<div style="background-color: #ffffff;padding-left: 10px">
+<div style="background-color: #ffffff;padding-left: 10px;padding-right: 10px">
 	<div class="row">
 		<div class="col-md-4">
 			<div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
@@ -23,14 +23,14 @@
 	</div>
 		</div>
 		<div class="col-md-8">
-			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;"></div><br>
-			<p>The Geological Society of Sri Lanka annually award medals, certificates and cash prizes in
+			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">Awards</div><br>
+			<p style="text-align: justify">The Geological Society of Sri Lanka annually award medals, certificates and cash prizes in
 				recognition of contributions made by member geologists to uphold the geology of Sri Lanka
 				and contributions for the nation and the profession. It also recognizes young graduates and
 				undergraduates for their merit performance in Geology.</p>
 
 			
 
-</div></div>
+</div></div></div>
 @include('layouts.footer')
 @endsection

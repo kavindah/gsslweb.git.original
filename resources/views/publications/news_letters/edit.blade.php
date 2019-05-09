@@ -14,13 +14,6 @@
 	</div>
 
 	
-	<div class="form-group">
-		{{ Form::label('body','Body')}}
-		{{ Form::textarea('body',$news_letters->body,['class'=>'form-control my-editor', 'placeholder'=>'Body'])}}
-	</div>
-	<br>
-	
-	
 	<br>
 	{{Form::hidden('_method','PUT')}}
 	{{Form::submit('Submit',['class'=>'btn btn-success'])}}

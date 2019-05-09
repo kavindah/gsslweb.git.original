@@ -24,7 +24,7 @@ error_reporting(-1);
     <div class="row" style="background-color: #ffffff;height: auto;padding: 20px;width: 100%;margin: 0 2.5px 0 2.5px ;background-image: url({{url('siteimages/homeback.jpg')}});">
         <!-- background-image: url('siteimages/back.jpg'); -->
 
-        <div class="col-md-2 p-0 m-0"><img src="{{asset('siteimages/logonew.png')}}" width="80%" class="navlogo"></div>
+        <div class="col-md-2 p-0 m-0"><img src="{{asset('siteimages/logonew.png')}}" width="90%" class="navlogo"></div>
         <div class="col-md-2 p-0 m-0"><div class="gssl">GSSL</div></div>
         <div class="col-md-6 p-0 m-0"> <div class="webtext">Geological Society of Sri Lanka</div></div>
 
@@ -50,9 +50,9 @@ error_reporting(-1);
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            <li><a href="{{url('/')}}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+                            <li><a  href="{{url('/')}}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a></li>
 
-                            <li><a href="{{url('article_published')}}" class="nav-link {{ request()->is('article_published') ? 'active' : '' }}">Articles</a></li>
+                            <li><a  href="{{url('article_published')}}" class="nav-link {{ request()->is('article_published') ? 'active' : '' }}">Articles</a></li>
 
                              <li><a href="{{url('news')}}" class="nav-link {{ request()->is('news') ? 'active' : '' }}">News</a></li>
 
@@ -66,11 +66,11 @@ error_reporting(-1);
 
                             <li><a href="/awards" class="nav-link {{ request()->is('awards') ? 'active' : '' }}">Awards</a></li>
 
-                            <li><a href="/excom" class="nav-link {{ request()->is('excom') ? 'active' : '' }}">Exclutive committee</a></li>
+                            <li><a href="/annual_session" class="nav-link {{ request()->is('annual_session') ? 'active' : '' }}" data-toggle="tooltip" title="Annual Sessions" data-placement="bottom">AS</a></li>
+
+                            <li><a href="/excom" class="nav-link {{ request()->is('excom') ? 'active' : '' }}" data-toggle="tooltip" title="Executive committee" data-placement="bottom">EC</a></li>
 
                             <li><a href="/members" class="nav-link {{ request()->is('members') ? 'active' : '' }}">Members</a></li>
-
-                            <li><a href="#" class="nav-link">About us</a></li>
 
                             <li><a href="#" class="nav-link">Contact us</a></li> 
   

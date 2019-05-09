@@ -11,15 +11,7 @@
 		{{ Form::label('title','Title')}}
 		{{ Form::text('title',$annual_trips->title,['class'=>'form-control', 'placeholder'=>'Title'])}}
 	</div>	
-	<div class="form-group">
-		{{ Form::label('body','Body')}}
-		{{ Form::textarea('body',$annual_trips->body,['class'=>'form-control my-editor', 'placeholder'=>'Body'])}}
-	</div>
-	<div class="form-control">
-		<label>Cover Image:</label>
-		{{Form::file('annualtrip_image')}}
-	</div>
-	
+
 	<br>
 	{{Form::hidden('_method','PUT')}}
 	{{Form::submit('Submit',['class'=>'btn btn-success'])}}

@@ -11,12 +11,7 @@
 		{{ Form::label('title','Title')}}
 		{{ Form::text('title',$workshops->title,['class'=>'form-control', 'placeholder'=>'Title'])}}
 	</div>	
-	<div class="form-group">
-		{{ Form::label('body','Body')}}
-		{{ Form::textarea('body',$workshops->body,[ 'class'=>'form-control my-editor', 'placeholder'=>'Body'])}}
-	</div>
 
-	
 	<br>
 	{{Form::hidden('_method','PUT')}}
 	{{Form::submit('Submit',['class'=>'btn btn-success'])}}

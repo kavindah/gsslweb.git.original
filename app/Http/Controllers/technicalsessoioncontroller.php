@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\technicalsession;
+use Illuminate\Support\Facades\DB;
 
 class technicalsessoioncontroller extends Controller
 {
@@ -40,22 +41,11 @@ class technicalsessoioncontroller extends Controller
             'title'=>'required|max:255|min:5'
         ]);
         $technicalsessions=new technicalsession;
-           if($request->hasFile('technicalsession_image')){
-                $filenameWithExt=$request->file('technicalsession_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('technicalsession_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('technicalsession_image')->storeAs('public/technicalsession_images',$fileNameToStore);
-                $technicalsessions->technicalsession_image=$fileNameToStore;
-           }
-            
-    $technicalsessions->title=$request->input('title');
-    $technicalsessions->body=$request->input('body');
-    $technicalsessions->user_id=auth()->user()->id;
-    
-    $technicalsessions->save();
+        $technicalsessions->user_id=auth()->user()->id;
+        $technicalsessions->title=$request->input('title');
+        $technicalsessions->save();
 
-    return redirect('/activities_technical_session_create')->with('success','New event uploaded');
+    return redirect('/activities_technical_session_create')->with('success','New Technical session title created');
     }
 
     /**
@@ -66,7 +56,14 @@ class technicalsessoioncontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('technicalsessionmores')
+        ->select('*')
+        ->where('technical_session_id', $id)
+        ->orderBy('created_at','desc')
+        ->get();
+
+        return view('activities.technical_session.technical_session_more.index', ['technicalsessionmores' => $data], compact('id'));
+
     }
 
     /**
@@ -91,22 +88,11 @@ class technicalsessoioncontroller extends Controller
     public function update(Request $request, $id)
     {
         $technicalsessions=technicalsession::find($id);
-        if($request->hasFile('technicalsession_image')){
-                $filenameWithExt=$request->file('technicalsession_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('technicalsession_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('technicalsession_image')->storeAs('public/technicalsession_images',$fileNameToStore);
-                $technicalsessions->technicalsession_image=$fileNameToStore;
-           }
-            
-    $technicalsessions->title=$request->input('title');
-    $technicalsessions->body=$request->input('body');
-    $technicalsessions->user_id=auth()->user()->id;
-    
-    $technicalsessions->save();
+        $technicalsessions->title=$request->input('title');
+        $technicalsessions->user_id=auth()->user()->id;
+        $technicalsessions->save();
 
-    return redirect('/activities_technical_session')->with('success','Event updated');
+    return redirect('/activities_technical_session')->with('success','Technical session title updated');
     }
 
     /**
@@ -119,6 +105,6 @@ class technicalsessoioncontroller extends Controller
     {
         $technicalsession=technicalsession::find($id);
         $technicalsession->delete();
-        return redirect('/activities_technical_session')->with('success','Event Deleted');
+        return redirect('/activities_technical_session')->with('success','Technical session title Deleted');
     }
 }

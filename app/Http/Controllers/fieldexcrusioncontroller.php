@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\fieldexcrusion;
+use Illuminate\Support\Facades\DB;
 
 class fieldexcrusioncontroller extends Controller
 {
@@ -40,18 +41,8 @@ class fieldexcrusioncontroller extends Controller
             'title'=>'required|max:255|min:5'
         ]);
         $fieldexcursions=new fieldexcrusion;
-           if($request->hasFile('fieldexcursion_image')){
-                $filenameWithExt=$request->file('fieldexcursion_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('fieldexcursion_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('fieldexcursion_image')->storeAs('public/fieldexcrusion_images',$fileNameToStore);
-                $fieldexcursions->fieldexcrusion_image=$fileNameToStore;
-           }
-            
-    $fieldexcursions->title=$request->input('title');
-    $fieldexcursions->body=$request->input('body');
-    $fieldexcursions->user_id=auth()->user()->id;
+        $fieldexcursions->title=$request->input('title');
+        $fieldexcursions->user_id=auth()->user()->id;
     
     $fieldexcursions->save();
 
@@ -66,7 +57,14 @@ class fieldexcrusioncontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('fieldexcursionmores')
+            ->select('*')
+            ->where('field_excursion_id', $id)
+            ->orderBy('created_at','desc')
+            ->get();
+
+        return view('activities.field_excursion.field_excursion_more.index', ['fieldexcursionmores' => $data], compact('id'));
+
     }
 
     /**
@@ -91,22 +89,12 @@ class fieldexcrusioncontroller extends Controller
     public function update(Request $request, $id)
     {
         $fieldexcursions=fieldexcrusion::find($id);
-        if($request->hasFile('fieldexcursion_image')){
-                $filenameWithExt=$request->file('fieldexcursion_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('fieldexcursion_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('fieldexcursion_image')->storeAs('public/fieldexcrusion_images',$fileNameToStore);
-                $fieldexcursions->fieldexcursion_image=$fileNameToStore;
-           }
-            
-    $fieldexcursions->title=$request->input('title');
-    $fieldexcursions->body=$request->input('body');
-    $fieldexcursions->user_id=auth()->user()->id;
-    
-    $fieldexcursions->save();
+        $fieldexcursions->title=$request->input('title');
+        $fieldexcursions->user_id=auth()->user()->id;
 
-    return redirect('/activities_field_excursion')->with('success','New field Excursions updated');
+        $fieldexcursions->save();
+
+     return redirect('/activities_field_excursion')->with('success','New field Excursions updated');
     }
 
     /**

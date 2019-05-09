@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\newsletter;
+use Illuminate\Support\Facades\DB;
 
 class newslettercontroller extends Controller
 {
@@ -42,10 +43,9 @@ class newslettercontroller extends Controller
           $news_letters = new newsletter;
         $news_letters->user_id=auth()->user()->id;
         $news_letters->title=$request->input('title');
-        $news_letters->body=$request->input('body');
         $news_letters->save();
 
-        return redirect('/news_letters_create')->with('success','News Letter created');
+        return redirect('/news_letters_create')->with('success','News Letter Title created');
     }
 
     /**
@@ -56,7 +56,14 @@ class newslettercontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('newslettersmores')
+            ->select('*')
+            ->where('news_letters_id', $id)
+            ->orderBy('created_at','desc')
+            ->get();
+
+        return view('publications.news_letters.news_letters_more.index', ['newslettersmores' => $data], compact('id'));
+
     }
 
     /**
@@ -83,10 +90,9 @@ class newslettercontroller extends Controller
         $news_letters=newsletter::find($id);
          $news_letters->user_id=auth()->user()->id;
         $news_letters->title=$request->input('title');
-        $news_letters->body=$request->input('body');
         $news_letters->save();
 
-        return redirect('/news_letters')->with('success','News Letter Updated');
+        return redirect('/news_letters')->with('success','News Letter Title Updated');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\annualtrip;
+use Illuminate\Support\Facades\DB;
 
 class annualtripcontroller extends Controller
 {
@@ -40,17 +41,8 @@ class annualtripcontroller extends Controller
             'title'=>'required|max:255|min:5'
         ]);
         $annual_trips=new annualtrip;
-           if($request->hasFile('annualtrip_image')){
-                $filenameWithExt=$request->file('annualtrip_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('annualtrip_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('annualtrip_image')->storeAs('public/annualtrip_images',$fileNameToStore);
-                $annual_trips->annualtrip_image=$fileNameToStore;
-           }
             
     $annual_trips->title=$request->input('title');
-    $annual_trips->body=$request->input('body');
     $annual_trips->user_id=auth()->user()->id;
     
     $annual_trips->save();
@@ -66,7 +58,14 @@ class annualtripcontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('annualtripmores')
+            ->select('*')
+            ->where('annual_trip_id', $id)
+            ->orderBy('created_at','desc')
+            ->get();
+
+        return view('activities.annual_trip.annual_trip_more.index', ['annual_trip_mores' => $data], compact('id'));
+
     }
 
     /**
@@ -91,22 +90,11 @@ class annualtripcontroller extends Controller
     public function update(Request $request, $id)
     {
        $annual_trips=annualtrip::find($id);
-       if($request->hasFile('annualtrip_image')){
-                $filenameWithExt=$request->file('annualtrip_image')->getClientOriginalName();
-                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('annualtrip_image')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-                $path=$request->file('annualtrip_image')->storeAs('public/annualtrip_images',$fileNameToStore);
-                $annual_trips->annualtrip_image=$fileNameToStore;
-           }
-            
-    $annual_trips->title=$request->input('title');
-    $annual_trips->body=$request->input('body');
-    $annual_trips->user_id=auth()->user()->id;
-    
-    $annual_trips->save();
+        $annual_trips->title=$request->input('title');
+        $annual_trips->user_id=auth()->user()->id;
+        $annual_trips->save();
 
-    return redirect('/activities_annual_trip')->with('success','New Annual Trip Updated');
+        return redirect('/activities_annual_trip')->with('success','New Annual Trip Updated');
     }
 
     /**

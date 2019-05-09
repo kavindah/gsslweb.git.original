@@ -228,7 +228,7 @@ class MemberReqController extends Controller
                 $user->name = Input::input('surname');
                 $user->membershipno = Input::input('membershipno');
                 $user->email = Input::input('office_email');
-
+                $user->requested_membership = Input::input('requested_membership');
                 $user->office_tp = Input::input('office_tp');
                 $user->office_address = Input::input('office_address');
                 $user->profile_photo = Input::input('profile_photo');

@@ -47,6 +47,7 @@
 		</div>
 		<div class="col-md-8">
 			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">L.J.D.Fernando Memorial Medal</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			@if(count($ljd_medals)>0)
 			@foreach($ljd_medals as $ljd_medal)
 				<div style="text-align: justify;width: 95%;">

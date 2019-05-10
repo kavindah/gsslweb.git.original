@@ -45,7 +45,8 @@
 	</div>
 		</div>
 		<div class="col-md-8">
-			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">PG Cooray Medal</div>
+			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">PG Cooray Medal</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			<p>To honour Prof. P.G. Cooray for his outstanding contribution to earth science, the geological society of
 				Sri Lanka awards the P.G. Cooray Medal every year from 1995, to the most outstanding young Sri
 				Lankan earth scientist. The nominee should be under 35 years of age at the time of nomination and
@@ -56,7 +57,7 @@
 				of the institution for which nominee works.  In addition to the medal, starting with 2015 the medal
 				recipient would receive a cash award of  Rs 50,000  <b>‘In memory of Gerald and Joan Cooray’</b>, presented
 				by their daughter and grandson, Shantini Ann and Jamie.</p>
-			<br>
+			<hr>
 			@if(count($pgs)>0)
 			@foreach($pgs as $pg)
 				<div style="text-align: justify;width: 95%;">

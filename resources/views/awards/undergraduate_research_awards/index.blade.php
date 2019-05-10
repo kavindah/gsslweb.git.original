@@ -47,6 +47,7 @@
 		</div>
 		<div class="col-md-8">
 			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">GSSL Undergraduate Research Awards</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			@if(count($undergraduateresearchawards)>0)
 			@foreach($undergraduateresearchawards as $undergraduateresearchaward)
 				<div style="text-align: justify;width: 95%;">

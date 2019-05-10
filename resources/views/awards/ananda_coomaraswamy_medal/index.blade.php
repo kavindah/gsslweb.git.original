@@ -47,11 +47,12 @@
 		</div>
 		<div class="col-md-8">
 			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">Ananda Coomaraswamy Medal</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			<p>The Ananda Coomaraswamy Memorial Medal- Awarded by the Geological Society of Sri
 				Lanka to an eminent Geologist who has made an outstanding contribution towards the
 				advancement of Sri Lankan Geology, to honour the late Dr. Ananda Coomaraswamy for his
 				pioneering contribution to the geological knowledge in Sri Lanka. The recipient would deliver
-				Ananda Coomaraswamy Memorial Oration during a special session organized by the GSSL.</p><br>
+				Ananda Coomaraswamy Memorial Oration during a special session organized by the GSSL.</p><hr><br>
 			@if(count($anandas)>0)
 			@foreach($anandas as $ananda)
 				<div style="text-align: justify;width: 95%;">

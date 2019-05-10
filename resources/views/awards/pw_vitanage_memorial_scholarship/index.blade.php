@@ -47,13 +47,14 @@
 		</div>
 		<div class="col-md-8">
 			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">P.W.Vitanage Memorial Scholarship</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			<p>To honour Professor P.W.Vitanage, the founder of the Department of Geology, University of
 				Peradeniya, for his contribution to Geosciences of Sri Lanka, every year the Geological Society of Sri
 				Lanka awards the Prof. P.W. Vitanage memorial scholarship to an undergraduate student who are
 				following the Special Degree Course in Geology. The student will be selected by the University of
 				Peradeniya based on his/her performances at the 200 Series Level. The Society extents  its gratitude
 				to members and well wishes whose generous contribution helped to establishment of the Prof. P.W.
-				Vitanage Memorial Fund.</p><br>
+				Vitanage Memorial Fund.</p><hr>
 			@if(count($vitanas)>0)
 			@foreach($vitanas as $vitana)
 				<div style="text-align: justify;width: 95%;">

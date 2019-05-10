@@ -18,8 +18,8 @@
 		
 		<div style="background-color: #ffffff;padding: 20px;">
 			<div><h3>Executive Committee</h3></div><hr>
-		
 
+			The Executive Committee of the Geological Society of Sri Lanka consists of the President, President Elect, Vice President, Honorary Secretary, Honorary Treasurer, two (02) Editors, seven (07) Committee members and immediate past –President”.
 	</div>	</div>
 </div>
 @include('layouts.footer')

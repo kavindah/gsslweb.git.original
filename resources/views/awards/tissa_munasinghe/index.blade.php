@@ -47,13 +47,14 @@
 		</div>
 		<div class="col-md-8">
 			<div style="margin-top: 10px;font-weight: bold;font-size: 18px;text-align:justify;">Tissa Munasinghe Scholarship</div><br>
+			<a class="btn btn-outline-success">Winners</a><br><br>
 			<p>The “Dr. Tissa Munasinghe Scholarship” of the GSSL awards annually to an undergraduate student
 				who is following the 400 Series Course in Geology. The student will be selected by the University of
 				Peradeniya based on his/her performances at the 100-300 Series Level and on the economic
 				background. This scholarship is sponsored by Dr. Tissa Munasinghe, a well known Sri Lankan
 				Geologist, now holding an appointment as a Professor at the Los Angeles Harbor College, Wilmington,
 				USA. The Society extents its gratitude to Dr. Tissa Munasinghe and his family to establishment of a
-				Scholarship Fund.</p>
+				Scholarship Fund.</p><hr>
 			@if(count($tissas)>0)
 			@foreach($tissas as $tissa)
 				<div style="text-align: justify;width: 95%;">

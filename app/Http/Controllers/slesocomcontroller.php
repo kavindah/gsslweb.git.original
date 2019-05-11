@@ -14,7 +14,7 @@ class slesocomcontroller extends Controller
      */
     public function index()
     {
-         $slesocom=abvolume::orderBy('created_at','desc')->paginate(10);
+         $slesocom=slesocom::orderBy('created_at','desc')->paginate(10);
         return view('sleso.slesocom.index')->with('slesocs',$slesocom);
     }
 

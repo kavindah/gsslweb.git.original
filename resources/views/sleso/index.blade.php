@@ -10,9 +10,7 @@
             <div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
                 <div style="border-right:solid #BDBDBD;height:auto;">
                     <a href="/ieso_school" class="btn membtn">Schools Olympiad</a>
-                    <a href="/ieso_syllabus" class="btn membtn">ESO Syllabus</a>
-                    <a href="/ieso_past_papers" class="btn membtn">Past papers</a>
-                    <a href="/sleso_members" class="btn membtn">Committee</a>
+                    <a href="/sleso_members" class="btn membtn">SLESCO Committee</a>
                     <a href="/sleso_past_members" class="btn membtn">Past Committee</a>
                     <a href="/slesocom" class="btn membtn">SLESO Competition</a>
                     <a href="/iesocom" class="btn membtn">International ESO Competition</a>

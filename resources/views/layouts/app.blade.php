@@ -72,7 +72,7 @@ error_reporting(-1);
 
                             <li><a href="/members" class="nav-link {{ request()->is('members') ? 'active' : '' }}">Members</a></li>
 
-                            <li><a href="#" class="nav-link">Contact us</a></li> 
+                            <li><a href="/contact_us" class="nav-link {{ request()->is('contact_us') ? 'active' : '' }}">Contact us</a></li>
   
                         <!-- Authentication Links -->
                         @guest
@@ -108,7 +108,6 @@ error_reporting(-1);
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

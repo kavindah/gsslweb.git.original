@@ -25,10 +25,6 @@
 	<div class="form-control">
 		<label>Cover Image:</label>
 		{{Form::file('journal_image')}}
-	</div><br>
-	<div class="form-control">
-		<label>Other files:</label>
-		{{Form::file('journal_file',['multiple'=>'multiple'])}}
 	</div>
 
 	

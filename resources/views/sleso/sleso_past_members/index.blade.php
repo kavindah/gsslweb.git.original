@@ -7,7 +7,7 @@
 		<div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
 		<div style="border-right:solid #BDBDBD;height:auto;">
 			<a href="/excom" class="btn membtn">Go Back</a>
-			<a href="/sleso_members" class="btn membtn">Committee</a>
+			<a href="/sleso_members" class="btn membtn">SLESCO Committee</a>
 			<a href="/sleso_past_members" class="btn membtn_active">Past Committee</a>
 			<a href="/slesocom" class="btn membtn">SLESO Competition</a>
 			<a href="/iesocom" class="btn membtn">International ESO Competition</a>

@@ -56,37 +56,36 @@ class MemberReqController extends Controller
 
 
             ],
-            'surname'=>[
+            'surname' => [
                 'string',
                 'regex:/^[a-zA-Z]+$/u',
             ],
-            'othername'=>[
+            'othername' => [
                 'string',
                 'regex:/^[a-zA-Z]+$/u',
             ],
-            'profile_photo'=>[
+            'profile_photo' => [
                 'file' => 'max:10240',
             ],
-            'nic'=>[
+            'nic' => [
                 'regex:/[0-9]/',
             ],
             'office_tp' => 'min:10|numeric',
             'home_tp' => 'min:10|numeric',
-            'first_degree_uni'=>'regex:/^[A-Za-z\s-_]+$/',
-            'sec_degree_uni'=>'regex:/^[A-Za-z\s-_]+$/',
-            'other_degree_uni'=>'regex:/^[A-Za-z\s-_]+$/',
-            'first_degree_country'=>'regex:/^[A-Za-z\s-_]+$/',
-            'sec_degree_country'=>'regex:/^[A-Za-z\s-_]+$/',
-            'other_degree_country'=>'regex:/^[A-Za-z\s-_]+$/',
-            'major_subjects'=>'regex:/^[A-Za-z\s-_]+$/',
-            'proposer_name'=>'regex:/^[A-Za-z\s-_]+$/',
-            'seconder_name'=>'regex:/^[A-Za-z\s-_]+$/',
-            'sec_degree_year' => 'integer|min:1820|max:'.date('Y'),
-            'first_degree_year' => 'integer|min:1820|max:'.date('Y'),
-            'other_degree_year' => 'integer|min:1820|max:'.date('Y'),
+            'first_degree_uni' => 'regex:/^[A-Za-z\s-_]+$/',
+            'sec_degree_uni' => 'regex:/^[A-Za-z\s-_]+$/',
+            'other_degree_uni' => 'regex:/^[A-Za-z\s-_]+$/',
+            'first_degree_country' => 'regex:/^[A-Za-z\s-_]+$/',
+            'sec_degree_country' => 'regex:/^[A-Za-z\s-_]+$/',
+            'other_degree_country' => 'regex:/^[A-Za-z\s-_]+$/',
+            'major_subjects' => 'regex:/^[A-Za-z\s-_]+$/',
+            'proposer_name' => 'regex:/^[A-Za-z\s-_]+$/',
+            'seconder_name' => 'regex:/^[A-Za-z\s-_]+$/',
+            'sec_degree_year' => 'integer|min:1820|max:' . date('Y'),
+            'first_degree_year' => 'integer|min:1820|max:' . date('Y'),
+            'other_degree_year' => 'integer|min:1820|max:' . date('Y'),
 
         ]);
-
 
 
         if ($request->hasFile('profile_photo')) {
@@ -168,7 +167,7 @@ class MemberReqController extends Controller
             $memberReq->seconder_name = Input::get("seconder_name");
             $memberReq->seconder_mem_no = Input::get("seconder_mem_no");
             $memberReq->password = Hash::make(Input::get('password'));
-            $memberReq->notifications='1';
+            $memberReq->notifications = '1';
             $memberReq->save();
             return redirect('members')->with('success', 'Application sent,You will receive a confirmation email soon');
         } else {
@@ -216,13 +215,12 @@ class MemberReqController extends Controller
         $post = MemberReq::find($id);
         $user = new User;
 
-        if(!User::where('email', '=', Input::get('office_email'))->exists()) {
-        if ($post->status == '0' || $post->status == '') {
-            $post->status = 'confirm';
-            $post->notifications='0';
-            $post->membershipno = $request->input('membershipno');
-            $post->save();
-
+        if (!User::where('email', '=', Input::get('office_email'))->exists()) {
+            if ($post->status == '0' || $post->status == '') {
+                $post->status = 'confirm';
+                $post->notifications = '0';
+                $post->membershipno = $request->input('membershipno');
+                $post->save();
 
 
                 $user->name = Input::input('surname');
@@ -237,21 +235,23 @@ class MemberReqController extends Controller
                 $user->save();
 
 
-
-            }
-            else
-            {
+            } else {
                 return redirect('/requests')->with('error', 'Cannot add.already registered using this email');
             }
-//            $data = array('name'=>"Geological Socoety of Sri Lanka",
-//                'email'=>$post->office_email);
-//            Mail::send('members', $data, function($message) use($data) {
-//                $message->to($data['email'],'GSSL')->subject
-//                ('You Request is confirmed by the GSSL.')->setBody(' Please log with your email and password that you are provided previously','text/html');
-//                $message->from('dskharshana@gmail.com','Geological Socoety of Sri Lanka');
-//            });
+            if (@fopen("http://www.google.com", "r")) {
+                $data = array('name' => "Geological Socoety of Sri Lanka",
+                    'email' => $post->office_email);
+                Mail::send('members', $data, function ($message) use ($data) {
+                    $message->to($data['email'], 'GSSL')->subject
+                    ('You Request is confirmed by the GSSL.')->setBody(' Please log with your email and password that you are provided previously', 'text/html');
+                    $message->from('dskharshana@gmail.com', 'Geological Socoety of Sri Lanka');
+                });
 
-            return redirect('/requests')->with('success', 'Successfull added as a member');
+                return redirect('/requests')->with('success', 'Successfully added as a member');
+            } else {
+                return redirect('/requests')->with('error', 'Please check your internet connection');
+            }
+
         } else {
 
 

@@ -32,6 +32,7 @@
 		<div class="col-md-2">
 			<div style="border-left:solid #BDBDBD;height:auto;margin: 10px;">
 			<div style="text-align:center;margin-top:30px; font-size:16px;margin-bottom:10px;font-weight: bold;color:#5D6D7E; ">Latest Issue</div>
+				<img src="{{asset('siteimages\journal_volume.jpeg')}}" style="width: 100%;margin-left: 2px"/>
 		</div>
 	</div>
 	</div></div>

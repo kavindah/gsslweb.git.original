@@ -77,6 +77,18 @@ Route::get('/annual_session','PagesController@annual_session');
 Route::get('/pastexcom','PagesController@pastexcom');
 Route::get('/sleso_members','PagesController@sleso_members');
 Route::get('/sleso_past_members','PagesController@sleso_past_members');
+Route::get('/ananda_coomaraswamy_medal_winners','PagesController@ananda_coomaraswamy_medal_winners');
+Route::get('/ljd_medal_winners','PagesController@ljd_medal_winners');
+Route::get('/pg_cooray_medal_winners','PagesController@pg_cooray_medal_winners');
+Route::get('/pw_vitanage_memorial_winners','PagesController@pw_vitanage_memorial_winners');
+Route::get('/tissa_munasinghe_sch_winners','PagesController@tissa_munasinghe_sch_winners');
+Route::get('/research_awards_winners','PagesController@research_awards_winners');
+Route::get('/slesocom_past_papers','PagesController@slesocom_past_papers');
+Route::get('/slesocom_syllabus','PagesController@slesocom_syllabus');
+Route::get('/iesocom_pastpapers','PagesController@iesocom_pastpapers');
+Route::get('/iesocom_syllabus','PagesController@iesocom_syllabus');
+Route::get('/contact_us','PagesController@contact_us');
+
 
 
 
@@ -211,6 +223,37 @@ Route::get('calendar_event_create',['middleware'=>['auth','admin'],'uses'=>'Page
 
 Route::resource('sleso_members','slesomemberscontroller');
 Route::get('sleso_members_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@sleso_members_create']);
+
+Route::resource('ananda_coomaraswamy_medal_winners','anandamedalwinnerscontroller');
+Route::get('ananda_coomaraswamy_medal_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@ananda_coomaraswamy_medal_winners_create']);
+
+Route::resource('ljd_medal_winners','ljdmedalwinnerscontroller');
+Route::get('ljd_medal_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@ljd_medal_winners_create']);
+
+Route::resource('pg_cooray_medal_winners','pgwinnerscontroller');
+Route::get('pg_cooray_medal_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@pg_cooray_medal_winners_create']);
+
+Route::resource('pw_vitanage_memorial_winners','pwvitanagewinnerscontroller');
+Route::get('pw_vitanage_memorial_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@pw_vitanage_memorial_winners_create']);
+
+Route::resource('tissa_munasinghe_sch_winners','tissamunasinghewinnerscontroller');
+Route::get('tissa_munasinghe_sch_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@tissa_munasinghe_sch_winners_create']);
+
+Route::resource('research_awards_winners','undergraduateresearchawardwinnerscontroller');
+Route::get('research_awards_winners_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@research_awards_winners_create']);
+
+Route::resource('slesocom_past_papers','slesocompastpaperscontroller');
+Route::get('slesocom_past_papers_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@slesocom_past_papers_create']);
+
+Route::resource('slesocom_syllabus','slesocomsyllabuscontroller');
+Route::get('slesocom_syllabus_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@slesocom_syllabus_create']);
+
+Route::resource('iesocom_past_papers','iesocompastpaperscontroller');
+Route::get('iesocom_past_papers_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@iesocom_past_papers_create']);
+
+Route::resource('iesocom_syllabus','iesocomsyllabuscontroller');
+Route::get('iesocom_syllabus_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@iesocom_syllabus_create']);
+
 
 Route::resource('sleso_past_members','slesopastmemberscontroller');
 Route::get('sleso_past_members_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@sleso_past_members_create']);
@@ -368,6 +411,56 @@ Route::get('/sleso_members',function(){
 Route::get('/sleso_past_members',function(){
     $sleso_past_members=\App\slesopastmembers::orderBy('created_at','desc')->paginate(10);
     return view('sleso.sleso_past_members.index')->with('sleso_past_members',$sleso_past_members);
+});
+
+Route::get('/ananda_coomaraswamy_medal_winners',function(){
+    $anandawinners=\App\anandamedalwinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.ananda_coomaraswamy_medal.ananda_coomaraswamy_medal_winners.index')->with('anandawinners',$anandawinners);
+});
+
+Route::get('/ljd_medal_winners',function(){
+    $ljd_medal_winners=\App\ljdmedalwinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.ljd_medal.ljd_medal_winners.index')->with('ljd_medal_winners',$ljd_medal_winners);
+});
+
+Route::get('/pg_cooray_medal_winners',function(){
+    $pgwinners=\App\pgwinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.pg_cooray_medal.pg_cooray_medal_winners.index')->with('pgwinners',$pgwinners);
+});
+
+Route::get('/pw_vitanage_memorial_winners',function(){
+    $vitanawinners=\App\pwvitanagewinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.pw_vitanage_memorial_scholarship.pw_vitanage_memorial_scholarship_winners.index')->with('vitanawinners',$vitanawinners);
+});
+
+Route::get('/tissa_munasinghe_sch_winners',function(){
+    $tissawinners=\App\tissamunasinghewinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.tissa_munasinghe.tissa_munasinghe_winners.index')->with('tissawinners',$tissawinners);
+});
+
+Route::get('/research_awards_winners',function(){
+    $undergraduateresearchawardwinners=\App\undergraduateresearchawardwinners::orderBy('created_at','desc')->paginate(10);
+    return view('awards.undergraduate_research_awards.undergraduate_research_awards_winners.index')->with('undergraduateresearchawardswinners',$undergraduateresearchawardwinners);
+});
+
+Route::get('/slesocom_past_papers',function(){
+    $slesocompastpapers=\App\slesocompastpapers::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.slesocom.slesocom_pastpapers.index')->with('slesocompastpapers',$slesocompastpapers);
+});
+
+Route::get('/slesocom_syllabus',function(){
+    $slesocomsyllabus=\App\slesocomsyllabus::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.slesocom.slesocom_syllabus.index')->with('slesocomsyllabuses',$slesocomsyllabus);
+});
+
+Route::get('/iesocom_syllabus',function(){
+    $iesocompastpapers=\App\iesocompastpapers::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.iesocom.iesocom_pastpapers.index')->with('iesocompastpapers',$iesocompastpapers);
+});
+
+Route::get('/iesocom_syllabus',function(){
+    $iesocomsyllabus=\App\iesocomsyllabus::orderBy('created_at','desc')->paginate(10);
+    return view('sleso.iesocom.iesocom_syllabus.index')->with('iesocomsyllabuses',$iesocomsyllabus);
 });
 
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@getReset');

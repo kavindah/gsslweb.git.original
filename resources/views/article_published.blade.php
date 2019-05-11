@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Crypt; ?>
             <div class="left_bar" style="height:auto;position:relative;  ">
                 @if(count($articles)>0)
                     @foreach($articles as $article)
-                        <div class="articlebody" style="width: 40%;float: left;margin-left: 5%">
-                            <div class="col-md-12"><img class="articlecover"
+                        <div class="articlebody" style="width:400px;float: left;margin-left: 5%;">
+                            <div class="col-md-12"><img class="articlecover" style="height: 70%"
                                                         src="/storage/articles_images/siteuploads/{{$article->article_image}}">
                             </div>
                             <h4 style="color:green;margin-top: 10px">{{$article->title}}</h4>

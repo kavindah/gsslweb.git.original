@@ -15,11 +15,7 @@
 		{{ Form::label('body','Body')}}
 		{{ Form::textarea('body',$publictalks->body,['class'=>'form-control my-editor', 'placeholder'=>'Body'])}}
 	</div>
-	<div class="form-control">
-		<label>Cover Image:</label>
-		{{Form::file('publictalk_image')}}
-	</div>
-	
+
 	<br>
 	{{Form::hidden('_method','PUT')}}
 	{{Form::submit('Submit',['class'=>'btn btn-success'])}}

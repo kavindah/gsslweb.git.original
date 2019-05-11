@@ -18,11 +18,7 @@
 		{{ Form::label('abstract','Abstract')}}
 		{{ Form::textarea('abstract',$journals->abstract,['class'=>'form-control my-editor', 'placeholder'=>'Abstract'])}}
 	</div><p style="color:red;">please use CKEditor link like  "/storage/volume/journal_images/files/yourfile.extension"</p>
-	<br>
-	<div class="form-control">
-		<label>Other files:</label>
-		{{Form::file('journal_file',['multiple'=>'multiple'])}}
-	</div>
+
 
 	
 	<br>

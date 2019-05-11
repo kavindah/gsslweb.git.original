@@ -34,12 +34,6 @@
 		{{ Form::textarea('abstract','',['class'=>'form-control my-editor', 'placeholder'=>'Abstract'])}}
 	</div>
 
-	<br>
-	<div class="form-control">
-		<label>Other files:</label>
-		{{Form::file('journal_file',['multiple'=>'multiple'])}}
-	</div>
-
 	
 	<br>
 	{{Form::submit('Submit',['class'=>'btn btn-success'])}}

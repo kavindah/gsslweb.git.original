@@ -40,14 +40,6 @@ class journalcontroller extends Controller
             'title'=>'required|max:255|min:5'
         ]);
                $journals=new journal;
- 
-           if($request->hasFile('journal_file')){
-                $filenameWithExt=$request->file('journal_file')->getClientOriginalName();
-                 $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('journal_file')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'.'.$extension;
-                $path=$request->file('journal_file')->storeAs('public/volume/journal_images/files',$filenameWithExt);
-           }
      $journals->volume_id=$request->input('volume_id');       
     $journals->title=$request->input('title');
     $journals->abstract=$request->input('abstract');
@@ -92,14 +84,6 @@ class journalcontroller extends Controller
     {
          $journals=journal::find($id);
 
-           if($request->hasFile('journal_file')){
-                $filenameWithExt=$request->file('journal_file')->getClientOriginalName();
-                 $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-                $extension=$request->file('journal_file')->getClientOriginalExtension();
-                $fileNameToStore=$filename.'.'.$extension;
-                $path=$request->file('journal_file')->storeAs('public/volume/journal_images/files',$filenameWithExt);
-           }
-            
     $journals->title=$request->input('title');
     $journals->abstract=$request->input('abstract');
     $journals->user_id=auth()->user()->id;

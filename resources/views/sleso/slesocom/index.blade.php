@@ -3,41 +3,21 @@
 
 	
 @section('contents')
-<script type="text/javascript">
-	$(document).ready(function(){ 
-      $('img').addClass('fancybox');
-});
-		 $(function($){
-        var addToAll = false;
-        var gallery = true;
-        var titlePosition = 'inside';
-        $(addToAll ? 'img' : 'img.fancybox').each(function(){
-            var $this = $(this);
-            var title = $this.attr('title');
-            var src = $this.attr('data-big') || $this.attr('src');
-            var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
-            $this.wrap(a);
-        });
-        if (gallery)
-            $('a.fancybox').attr('rel', 'fancyboxgallery');
-        $('a.fancybox').fancybox({
-            titlePosition: titlePosition
-        });
-    });
-    $.noConflict();
-</script>
+
 <div class="row">
 	<div class="col-md-3">
 		<div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
 		<div style="border-right:solid #BDBDBD;height:auto;">
 				<a href="/sleso" class="btn membtn">Go Back</a>
-				<a href="" class="btn membtn">Committee</a>
+				<a href="" class="btn membtn">SLESCO Committee</a>
 				<a href="" class="btn membtn">Past Committee</a>
 				<a href="/slesocom" class="btn membtn_active">SLESO Competition</a>
+				<a href="/slesocom_syllabus" class="btn membtn" style="width: 50%;float:right;margin-right: 5%;background-color:#1AA6B4;color: white"> > ESO Syllabus</a>
+				<a href="/slesocom_past_papers" class="btn membtn" style="width: 50%;float:right;margin-right: 5%;background-color:#1AA6B4;color: white;"> > Past papers</a>
 				<a href="/iesocom" class="btn membtn">International ESO Competition</a>
 			</div>
 	</div></div>
-	<div class="col-md-9">
+	<div class="col-md-9" style="background-color: white;padding-top: 10px">
 		<div><h3>Sri Lanaka Earth Science Olympiad Competition</h3></div>
 		<p>The Sri ankan Earth Science Olympiad Competition is jointly organized by the Geological
 			Society of Sri Lanka and the Department of Geology, University of Peradeniya. Sri Lankan

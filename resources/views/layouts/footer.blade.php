@@ -1,5 +1,5 @@
 
-	<div style="background-color:#2C3E50;color: white;padding: 20px; width: 100%;overflow:visible;position: absolute;z-index:1;float: left;text-align: left;left: 0;margin-top: 30px;">
+	<div class="footer">
 
 			<div class="row">
 		<div class="col-md-2">

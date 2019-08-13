@@ -50,41 +50,41 @@ error_reporting(-1);
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            <li><a  href="{{url('/')}}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+                            <li><a  href="{{url('/')}}" class="custom-active {{ request()->is('/') ? 'active' : '' }}">Home</a></li>
 
-                            <li><a  href="{{url('article_published')}}" class="nav-link {{ request()->is('article_published') ? 'active' : '' }}">Articles</a></li>
+                            <li><a  href="{{url('article_published')}}" class="custom-active {{ request()->is('article_published') ? 'active' : '' }}">Articles</a></li>
 
-                             <li><a href="{{url('news')}}" class="nav-link {{ request()->is('news') ? 'active' : '' }}">News</a></li>
+                             <li><a href="{{url('news')}}" class="custom-active {{ request()->is('news') ? 'active' : '' }}">News</a></li>
 
-                            <li><a href="{{url('publications')}}" class="nav-link {{ request()->is('publications') ? 'active' : '' }}">Publications</a></li>
+                            <li><a href="{{url('publications')}}" class="custom-active {{ request()->is('publications') ? 'active' : '' }}">Publications</a></li>
 
-                            <li><a href="{{url('activities_home')}}" class="nav-link {{ request()->is('activities_home') ? 'active' : '' }}">Activities</a></li>
+                            <li><a href="{{url('activities_home')}}" class="custom-active {{ request()->is('activities_home') ? 'active' : '' }}">Activities</a></li>
 
-                            <li><a href="/journalgssl" class="nav-link {{ request()->is('journalgssl') ? 'active' : '' }}" data-toggle="tooltip" title="Journal of geological Society of Sri Lanka" data-placement="bottom">JGSSL</a></li>
+                            <li><a href="/journalgssl" class="custom-active {{ request()->is('journalgssl') ? 'active' : '' }}" data-toggle="tooltip" title="Journal of geological Society of Sri Lanka" data-placement="bottom">JGSSL</a></li>
 
-                            <li><a href="/sleso" class="nav-link {{ request()->is('sleso') ? 'active' : '' }}" data-toggle="tooltip" title="Sri Lanka Earth Science Olympiad Committee" data-placement="bottom">SLESO</a></li>
+                            <li><a href="/sleso" class="custom-active {{ request()->is('sleso') ? 'active' : '' }}" data-toggle="tooltip" title="Sri Lanka Earth Science Olympiad Committee" data-placement="bottom">SLESO</a></li>
 
-                            <li><a href="/awards" class="nav-link {{ request()->is('awards') ? 'active' : '' }}">Awards</a></li>
+                            <li><a href="/awards" class="custom-active {{ request()->is('awards') ? 'active' : '' }}">Awards</a></li>
 
-                            <li><a href="/annual_session" class="nav-link {{ request()->is('annual_session') ? 'active' : '' }}" data-toggle="tooltip" title="Annual Sessions" data-placement="bottom">AS</a></li>
+                            <li><a href="/annual_session" class="custom-active {{ request()->is('annual_session') ? 'active' : '' }}" data-toggle="tooltip" title="Annual Sessions" data-placement="bottom">AS</a></li>
 
-                            <li><a href="/excom" class="nav-link {{ request()->is('excom') ? 'active' : '' }}" data-toggle="tooltip" title="Executive committee" data-placement="bottom">EC</a></li>
+                            <li><a href="/excom" class="custom-active {{ request()->is('excom') ? 'active' : '' }}" data-toggle="tooltip" title="Executive committee" data-placement="bottom">EC</a></li>
 
-                            <li><a href="/members" class="nav-link {{ request()->is('members') ? 'active' : '' }}">Members</a></li>
+                            <li><a href="/members" class="custom-active {{ request()->is('members') ? 'active' : '' }}">Members</a></li>
 
-                            <li><a href="/contact_us" class="nav-link {{ request()->is('contact_us') ? 'active' : '' }}">Contact us</a></li>
+                            <li><a href="/contact_us" class="custom-active {{ request()->is('contact_us') ? 'active' : '' }}">Contact us</a></li>
   
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="custom-active {{ request()->is('login') ? 'active' : ''}} " href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li><!--
                             <li class="nav-item">
                                 <a class="nav-link" style="display: none;" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>-->
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="custom-active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

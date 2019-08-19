@@ -3,7 +3,7 @@ body {
 }
 
 .bcolor {
-    background-color: #F5F5F5;
+    background-color: #F8F8F8;
 }
 
 a.fancybox img {
@@ -84,7 +84,7 @@ a.fancybox:hover img {
 .webtext {
     padding-top: 70px;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     float: left;
     margin-left: 20px;
 }

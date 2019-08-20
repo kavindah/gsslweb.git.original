@@ -1,29 +1,7 @@
 @extends('layout.theme')
 
 @section('contents')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('img').addClass('fancybox');
-        });
-        $(function ($) {
-            var addToAll = false;
-            var gallery = true;
-            var titlePosition = 'inside';
-            $(addToAll ? 'img' : 'img.fancybox').each(function () {
-                var $this = $(this);
-                var title = $this.attr('title');
-                var src = $this.attr('data-big') || $this.attr('src');
-                var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
-                $this.wrap(a);
-            });
-            if (gallery)
-                $('a.fancybox').attr('rel', 'fancyboxgallery');
-            $('a.fancybox').fancybox({
-                titlePosition: titlePosition
-            });
-        });
-        $.noConflict();
-    </script>
+
     <div class="row">
         <div class="col-md-3">
             <div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
@@ -68,6 +46,7 @@
                 @endif
                 <hr>
                 @endforeach
+                        {{$annual_trips->render()}}
                 @else
                     <p>No Annual Trip found</p>
                 @endif

@@ -49,6 +49,7 @@
 					@endif
 
 			@endforeach
+				{{$abvolumes->render()}}
 			@else
 				<p>There is no posts available</p>
 			@endif

@@ -37,9 +37,6 @@ class volumecontroller extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255|min:5'
-        ]);
         $volumes = new volume;
         $volumes->volume = $request->input('volume');
         $volumes->user_id = auth()->user()->id;

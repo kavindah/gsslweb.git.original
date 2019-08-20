@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
                 <div style="border-right:solid #BDBDBD;height:auto;">
-                    <a href="/ieso_school" class="btn membtn">Schools Olympiad</a>
+                    {{--<a href="/ieso_school" class="btn membtn">Schools Olympiad</a>--}}
                     <a href="/sleso_members" class="btn membtn">SLESCO Committee</a>
                     <a href="/sleso_past_members" class="btn membtn">Past Committee</a>
                     <a href="/slesocom" class="btn membtn">SLESO Competition</a>

@@ -72,6 +72,9 @@ Route::get('/excom','PagesController@excom');
 Route::get('/presentexcom','PagesController@presentexcom');
 Route::get('/pastpresidents','PagesController@pastpresidents');
 Route::get('/lifemembers','PagesController@lifemembers');
+Route::get('/ordinarymembers','PagesController@ordinarymembers');
+Route::get('/forignmembers','PagesController@forignmembers');
+Route::get('/associatemembers','PagesController@associatemembers');
 Route::get('/journal_submit','PagesController@journal_submit');
 Route::get('/annual_session','PagesController@annual_session');
 Route::get('/pastexcom','PagesController@pastexcom');
@@ -399,8 +402,23 @@ Route::get('/iesocom',function(){
 });
 
 Route::get('/lifemembers',function(){
-    $lifemembers=DB::table('member_reqs')->get();
-    return view('lifemembers')->with('lifemembers',$lifemembers);
+    $lifemembers=DB::table('member_reqs')->get()->where('requested_membership', 'lm')->where('status','confirm');
+    return view('Members.lifemembers')->with('lifemembers',$lifemembers);
+});
+
+Route::get('/ordinarymembers',function(){
+    $ordinarymember=DB::table('member_reqs')->get()->where('requested_membership', 'om')->where('status','confirm');
+    return view('Members.ordinarymembers')->with('ordinarymembers',$ordinarymember);
+});
+
+Route::get('/forignmembers',function(){
+    $forignmembers=DB::table('member_reqs')->get()->where('requested_membership', 'fm')->where('status','confirm');
+    return view('Members.forignmembers')->with('forignmembers',$forignmembers);
+});
+
+Route::get('/associatemembers',function(){
+    $associatemembers=DB::table('member_reqs')->get()->where('requested_membership', 'am')->where('status','confirm');
+    return view('Members.associatemembers')->with('associatemembers',$associatemembers);
 });
 
 Route::get('/sleso_members',function(){

@@ -167,7 +167,7 @@ use Illuminate\Support\Facades\Crypt;?>
                     <hr style="background-color:#F5F5F5;height: 10px;margin: 0">
 
                     <div style="bottom: 0">
-                        <iframe width="100%" height="62%"
+                        <iframe width="100%" height="62%" style="border: none"
                                 src="https://www.youtube.com/embed/yzX4NTRoLVI?rel=0">
                         </iframe>
                     </div>

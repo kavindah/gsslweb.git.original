@@ -431,7 +431,22 @@ class PagesController extends Controller
 
     public function lifemembers()
     {
-        return view('lifemembers');
+        return view('Members.lifemembers');
+    }
+
+    public function ordinarymembers()
+    {
+        return view('Members.ordinarymembers');
+    }
+
+    public function forignmembers()
+    {
+        return view('Members.forignmembers');
+    }
+
+    public function associatemembers()
+    {
+        return view('Members.associatemembers');
     }
 
     public function calendar_event_create()

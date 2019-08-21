@@ -402,22 +402,22 @@ Route::get('/iesocom',function(){
 });
 
 Route::get('/lifemembers',function(){
-    $lifemembers=DB::table('member_reqs')->get()->where('requested_membership', 'lm')->where('status','confirm');
+    $lifemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'lm')->where('status','confirm');
     return view('Members.lifemembers')->with('lifemembers',$lifemembers);
 });
 
 Route::get('/ordinarymembers',function(){
-    $ordinarymember=DB::table('member_reqs')->get()->where('requested_membership', 'om')->where('status','confirm');
+    $ordinarymember=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'om')->where('status','confirm');
     return view('Members.ordinarymembers')->with('ordinarymembers',$ordinarymember);
 });
 
 Route::get('/forignmembers',function(){
-    $forignmembers=DB::table('member_reqs')->get()->where('requested_membership', 'fm')->where('status','confirm');
+    $forignmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'fm')->where('status','confirm');
     return view('Members.forignmembers')->with('forignmembers',$forignmembers);
 });
 
 Route::get('/associatemembers',function(){
-    $associatemembers=DB::table('member_reqs')->get()->where('requested_membership', 'am')->where('status','confirm');
+    $associatemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'am')->where('status','confirm');
     return view('Members.associatemembers')->with('associatemembers',$associatemembers);
 });
 

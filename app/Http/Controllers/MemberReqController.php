@@ -52,23 +52,13 @@ class MemberReqController extends Controller
                 'string',
 //                'min:6'|'confirmed',             // must be at least 10 characters in length
 //                'regex:/[a-z]/',      // must contain at least one lowercase letter
-                'regex:/[A-Z]/',      // must contain at least one uppercase letter
+//                'regex:/[A-Z]/',      // must contain at least one uppercase letter
 
 
-            ],
-            'surname' => [
-                'string',
-                'regex:/^[a-zA-Z]+$/u',
             ],
             'othername' => [
                 'string',
                 'regex:/^[a-zA-Z]+$/u',
-            ],
-            'profile_photo' => [
-                'file' => 'max:10240',
-            ],
-            'nic' => [
-                'regex:/[0-9]/',
             ],
             'office_tp' => 'min:10|numeric',
             'home_tp' => 'min:10|numeric',
@@ -86,23 +76,22 @@ class MemberReqController extends Controller
             'other_degree_year' => 'integer|min:1820|max:' . date('Y'),
 
         ]);
-
-
-        if ($request->hasFile('profile_photo')) {
-            $filenameWithExt = $request->file('profile_photo')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('profile_photo')->getClientOriginalExtension();
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file('profile_photo')->storeAs('public/profile_photos', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
+        if($request->hasFile('profile_photo')){
+            $filenameWithExt=$request->file('profile_photo')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('profile_photo')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStore);
+        }else{
+            $fileNameToStore='noimage.jpg';
         }
+
         if ($request->hasFile('ceceipt')) {
             $filenameWithExt = $request->file('ceceipt')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('ceceipt')->getClientOriginalExtension();
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file('ceceipt')->storeAs('public/ceceipt', $fileNameToStore);
+            $request->file('ceceipt')->storeAs('public\receipt', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }

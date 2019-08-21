@@ -81,7 +81,7 @@ use Illuminate\Support\Facades\Crypt;?>
                             <div class="articlebodynew" style="padding: 10px;">
                                 <h5 style="color:green">{{$article->title}}</h5>
                                 <div class="col-md-12 p-0"><img class="articlecover" style="margin-bottom: 10px;"
-                                                                src="/storage/articles_images/siteuploads/{{$article->article_image}}">
+                                                                src="{{asset('/storage/articles_images/siteuploads/'.$article->article_image)}}">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">

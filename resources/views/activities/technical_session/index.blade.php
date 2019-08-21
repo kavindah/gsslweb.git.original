@@ -37,7 +37,7 @@
                                            class="btn membtn">Edit</a>
                                     </div>
                                     <div class="col-md-3">
-                                        {!!Form::open(['action'=>['technicalsessoioncontroller@destroy',$technical_session->id],'method'=>'POST', 'class'=>'pull-right'])!!}
+                                        {!!Form::open(['action'=>['technicalsessoioncontroller@destroy',$technical_session->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
                                         {{Form::hidden('_method','DELETE')}}
                                         {{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
                                         {!!Form::close()!!}

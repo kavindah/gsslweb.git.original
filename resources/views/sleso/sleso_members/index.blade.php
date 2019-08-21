@@ -31,7 +31,7 @@
 						<a href="/sleso_members/{{$sleso_member->id}}/edit" class="btn membtn">Edit</a>
 					</div>
 					<div class="col-md-3">
-						{!!Form::open(['action'=>['slesomemberscontroller@destroy',$sleso_member->id],'method'=>'POST', 'class'=>'pull-right'])!!}
+						{!!Form::open(['action'=>['slesomemberscontroller@destroy',$sleso_member->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
 						{{Form::hidden('_method','DELETE')}}
 						{{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
 						{!!Form::close()!!}

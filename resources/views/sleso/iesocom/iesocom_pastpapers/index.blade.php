@@ -32,7 +32,7 @@
 <a href="/iesocom_past_papers/{{$iesocompastpaper->id}}/edit" class="btn membtn">Edit</a>
 </div>
 <div class="col-md-3">
-{!!Form::open(['action'=>['iesocompastpaperscontroller@destroy',$iesocompastpaper->id],'method'=>'POST', 'class'=>'pull-right'])!!}
+{!!Form::open(['action'=>['iesocompastpaperscontroller@destroy',$iesocompastpaper->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
     {{Form::hidden('_method','DELETE')}}
     {{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
 {!!Form::close()!!}

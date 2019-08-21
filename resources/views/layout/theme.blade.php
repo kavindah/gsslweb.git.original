@@ -23,6 +23,11 @@
 
 	</script>
 
+	<script>
+		function ConfirmDelete() {
+			return confirm('Are you sure?');
+		}
+	</script>
 </head>
 <body class="bcolor">
 	@include('layouts.app')

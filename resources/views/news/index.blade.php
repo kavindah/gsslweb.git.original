@@ -66,7 +66,7 @@
                                     <a href="/news/{{$news->id}}/edit" class="btn btn-dark" style="margin-right: 10px">Edit</a>
 
 
-                                    {!!Form::open(['action'=>['newscontroller@destroy',$news->id],'method'=>'POST', 'class'=>'pull-right'])!!}
+                                    {!!Form::open(['action'=>['newscontroller@destroy',$news->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
                                     {{Form::hidden('_method','DELETE')}}
                                     {{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
                                     {!!Form::close()!!}

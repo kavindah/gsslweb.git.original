@@ -1,3 +1,9 @@
+<script>
+    function ConfirmDelete() {
+        return confirm('Are you sure?');
+    }
+</script>
+
 @extends('layout.theme')
 
 @section('contents')
@@ -36,7 +42,7 @@
                                 <a href="/annual_trip/{{$annual_trip->id}}/edit" class="btn membtn">Edit</a>
                             </div>
                             <div class="col-md-3">
-                                {!!Form::open(['action'=>['annualtripcontroller@destroy',$annual_trip->id],'method'=>'POST', 'class'=>'pull-right'])!!}
+                                {!!Form::open(['action'=>['annualtripcontroller@destroy',$annual_trip->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
                                 {{Form::hidden('_method','DELETE')}}
                                 {{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
                                 {!!Form::close()!!}

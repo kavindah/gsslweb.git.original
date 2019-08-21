@@ -6,6 +6,11 @@
 	<h2>Edit Profile</h2>
 	
 	{!! Form::open(['action'=>['userregistercontroller@update',Auth::user()->id],'method'=>'POST','enctype'=>'multipart/form-data' ]) !!}
+	<div class="form-control">
+		<label>Profile Picture:</label>
+		{{Form::file('profile_photo')}}
+	</div>
+
 	<div class="form-group">
 		
 		{{ Form::label('name','Name')}}

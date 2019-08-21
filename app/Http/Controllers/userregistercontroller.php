@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MemberReq;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -71,8 +72,15 @@ class userregistercontroller extends Controller
     public function update(Request $request, $id)
     {
          $user=User::find($id);
+        if($request->hasFile('profile_photo')){
+            $filenameWithExt=$request->file('profile_photo')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('profile_photo')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStore);
+        }
 
-   
+        $user->profile_photo = $fileNameToStore;
         $user->name=$request->input('name');
         $user->email=$request->input('email');
         $user->office_tp=$request->input('office_tp');

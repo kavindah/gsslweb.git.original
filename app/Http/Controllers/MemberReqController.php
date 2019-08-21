@@ -227,7 +227,7 @@ class MemberReqController extends Controller
             } else {
                 return redirect('/requests')->with('error', 'Cannot add.already registered using this email');
             }
-            if (@fopen("http://www.google.com", "r")) {
+            if (fopen("http://www.google.com", "r")) {
                 $data = array('name' => "Geological Socoety of Sri Lanka",
                     'email' => $post->office_email);
                 Mail::send('members', $data, function ($message) use ($data) {

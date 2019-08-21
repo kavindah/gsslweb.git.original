@@ -28,8 +28,18 @@
 
                     @if($foreignlifemember->requested_membership == "flm")
                         <div style="text-align: justify;width: 95%;">
-                            <div style="color:black; font-weight:bold;">
-                                {{$foreignlifemember->surname}}
+                            <div style="color:black;">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$foreignlifemember->profile_photo)}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{$foreignlifemember->surname_options}}.&nbsp;{{$foreignlifemember->surname}} <br>
+                                        {{$foreignlifemember->office_tp}}<br>
+                                        {{$foreignlifemember->office_email}}<br>
+                                        {{$foreignlifemember->office_address}}<br>
+                                    </div>
+                                </div>
                             </div>
                             <hr style="width:90% ">
                         </div>

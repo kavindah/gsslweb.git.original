@@ -28,8 +28,18 @@
 
                     @if($forignmember->requested_membership == "fm")
                         <div style="text-align: justify;width: 95%;">
-                            <div style="color:black; font-weight:bold;">
-                                {{$forignmember->surname}}
+                            <div style="color:black;">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$forignmember->profile_photo)}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{$forignmember->surname_options}}.&nbsp;{{$forignmember->surname}} <br>
+                                        {{$forignmember->office_tp}}<br>
+                                        {{$forignmember->office_email}}<br>
+                                        {{$forignmember->office_address}}<br>
+                                    </div>
+                                </div>
                             </div>
                             <hr style="width:90% ">
                         </div>

@@ -80,8 +80,8 @@ class MemberReqController extends Controller
             $filenameWithExt=$request->file('profile_photo')->getClientOriginalName();
             $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $extension=$request->file('profile_photo')->getClientOriginalExtension();
-            $fileNameToStore=$filename.'_'.time().'.'.$extension;
-            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStore);
+            $fileNameToStorePhoto=$filename.'_'.time().'.'.$extension;
+            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStorePhoto);
         }else{
             $fileNameToStore='noimage.jpg';
         }
@@ -114,7 +114,7 @@ class MemberReqController extends Controller
             $memberReq->home_email = Input::get("home_email");
             $memberReq->preferred_address = Input::get("preferred_address");
             //$memberReq->preferred_home_address=Input::get("preferred_home_address",false);
-            $memberReq->profile_photo = $fileNameToStore;
+            $memberReq->profile_photo = $fileNameToStorePhoto;
 
             $memberReq->requested_membership = Input::get("requested_membership");
 

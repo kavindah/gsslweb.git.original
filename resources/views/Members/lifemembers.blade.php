@@ -28,8 +28,18 @@
 
                     @if($lifemember->requested_membership == "lm")
                         <div style="text-align: justify;width: 95%;">
-                            <div style="color:black; font-weight:bold;">
-                                {{$lifemember->surname}}
+                            <div style="color:black;">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$lifemember->profile_photo)}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{$lifemember->surname_options}}.&nbsp;{{$lifemember->surname}} <br>
+                                        {{$lifemember->office_tp}}<br>
+                                        {{$lifemember->office_email}}<br>
+                                        {{$lifemember->office_address}}<br>
+                                    </div>
+                                </div>
                             </div>
 
 

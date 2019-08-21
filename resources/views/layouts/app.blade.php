@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="GSSL" content="geologicl society of sri lanka">
+    <meta name="GSSL-soil" content="soil Economic Geology Oceanography Gemology Environmental Geology Sedimentology Geophysics">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

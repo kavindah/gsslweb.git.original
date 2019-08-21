@@ -28,8 +28,16 @@
 
                     @if($institutionalmember->requested_membership == "im")
                         <div style="text-align: justify;width: 95%;">
-                            <div style="color:black; font-weight:bold;">
-                                {{$institutionalmember->surname}}
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$institutionalmember->profile_photo)}}">
+                                </div>
+                                <div class="col-md-6">
+                                    {{$institutionalmember->surname_options}}.&nbsp;{{$institutionalmember->surname}} <br>
+                                    {{$institutionalmember->office_tp}}<br>
+                                    {{$institutionalmember->office_email}}<br>
+                                    {{$institutionalmember->office_address}}<br>
+                                </div>
                             </div>
                             <hr style="width:90% ">
                         </div>

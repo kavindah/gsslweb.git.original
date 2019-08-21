@@ -28,8 +28,18 @@
 
                     @if($ordinarymember->requested_membership == "om")
                         <div style="text-align: justify;width: 95%;">
-                            <div style="color:black; font-weight:bold;">
-                                {{$ordinarymember->surname}}
+                            <div style="color:black;">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$ordinarymember->profile_photo)}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{$ordinarymember->surname_options}}.&nbsp;{{$ordinarymember->surname}} <br>
+                                        {{$ordinarymember->office_tp}}<br>
+                                        {{$ordinarymember->office_email}}<br>
+                                        {{$ordinarymember->office_address}}<br>
+                                    </div>
+                                </div>
                             </div>
                             <hr style="width:90% ">
                         </div>

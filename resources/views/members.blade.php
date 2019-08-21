@@ -11,6 +11,9 @@
                     <a href="ordinarymembers" class="btn membtn">Ordinary Members</a>
                     <a href="forignmembers" class="btn membtn">Foreign Members</a>
                     <a href="associatemembers" class="btn membtn">Associate Members</a>
+                    <a href="studentmembers" class="btn membtn">Student Members</a>
+                    <a href="institutionalmembers" class="btn membtn">Institutional Members</a>
+                    <a href="foreignlifemembers" class="btn membtn">Foreign Life Members</a>
                 </div>
             </div>
         </div>

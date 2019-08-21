@@ -10,9 +10,9 @@
                     <a href="members" class="btn membtn">Go Back</a>
                     <a href="lifemembers" class="btn membtn">Life Members</a>
                     <a href="ordinarymembers" class="btn membtn">Ordinary Members</a>
-                    <a href="forignmembers" class="btn membtn_active">Foreign Members</a>
+                    <a href="forignmembers" class="btn membtn">Foreign Members</a>
                     <a href="associatemembers" class="btn membtn">Associate Members</a>
-                    <a href="studentmembers" class="btn membtn">Student Members</a>
+                    <a href="studentmembers" class="btn membtn_active">Student Members</a>
                     <a href="institutionalmembers" class="btn membtn">Institutional Members</a>
                     <a href="foreignlifemembers" class="btn membtn">Foreign Life Members</a>
                 </div>
@@ -21,15 +21,15 @@
         <div class="col-md-9">
 
             <div style="background-color: white;padding: 15px;">
-                <h4 style="margin-bottom: 30px">Foreign Members</h4>
+                <h4 style="margin-bottom: 30px">Student Members</h4>
 
 
-                @foreach($forignmembers as $forignmember)
+                @foreach($studentmembers as $studentmember)
 
-                    @if($forignmember->requested_membership == "fm")
+                    @if($studentmember->requested_membership == "sm")
                         <div style="text-align: justify;width: 95%;">
                             <div style="color:black; font-weight:bold;">
-                                {{$forignmember->surname}}
+                                {{$studentmember->surname}}
                             </div>
                             <hr style="width:90% ">
                         </div>

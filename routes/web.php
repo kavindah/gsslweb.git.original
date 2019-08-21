@@ -75,6 +75,9 @@ Route::get('/lifemembers','PagesController@lifemembers');
 Route::get('/ordinarymembers','PagesController@ordinarymembers');
 Route::get('/forignmembers','PagesController@forignmembers');
 Route::get('/associatemembers','PagesController@associatemembers');
+Route::get('/studentmembers','PagesController@studentmembers');
+Route::get('/institutionalmembers','PagesController@institutionalmembers');
+Route::get('/foreignlifemembers','PagesController@foreignlifemembers');
 Route::get('/journal_submit','PagesController@journal_submit');
 Route::get('/annual_session','PagesController@annual_session');
 Route::get('/pastexcom','PagesController@pastexcom');
@@ -419,6 +422,21 @@ Route::get('/forignmembers',function(){
 Route::get('/associatemembers',function(){
     $associatemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'am')->where('status','confirm');
     return view('Members.associatemembers')->with('associatemembers',$associatemembers);
+});
+
+Route::get('/studentmembers',function(){
+    $studentmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'sm')->where('status','confirm');
+    return view('Members.studentmembers')->with('studentmembers',$studentmembers);
+});
+
+Route::get('/institutionalmembers',function(){
+    $institutionalmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'im')->where('status','confirm');
+    return view('Members.institutionalmembers')->with('institutionalmembers',$institutionalmembers);
+});
+
+Route::get('/foreignlifemembers',function(){
+    $foreignlifemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'flm')->where('status','confirm');
+    return view('Members.foreignlifemembers')->with('foreignlifemembers',$foreignlifemembers);
 });
 
 Route::get('/sleso_members',function(){

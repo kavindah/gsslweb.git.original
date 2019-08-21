@@ -42,11 +42,14 @@
             <a href="ananda_coomaraswamy_medal">&nbsp; Ananda Coomaraswamy</a><br>
         </div>
         <div class="col-md-2">
-            <div style="font-size:18px">&nbsp; Members</div><br>
-            <a href="lifemembers">&nbsp; Life Members</a><br>
-            <a href="ordinarymembers">&nbsp; Ordinary Members</a><br>
-            <a href="forignmembers">&nbsp; Foreign Members</a><br>
-            <a href="associatemembers">&nbsp; Associate Members</a><br>
+            <div style="font-size:18px">Members</div><br>
+            <a href="lifemembers">Life Members</a><br>
+            <a href="ordinarymembers">Ordinary Members</a><br>
+            <a href="forignmembers">Foreign Members</a><br>
+            <a href="associatemembers">Associate Members</a><br>
+            <a href="studentmembers" >Student Members</a><br>
+            <a href="institutionalmembers" >Institutional Members</a><br>
+            <a href="foreignlifemembers" >Foreign Life Members</a><br>
         </div>
     </div>
 

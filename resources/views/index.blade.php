@@ -75,11 +75,11 @@ use Illuminate\Support\Facades\Crypt;?>
                 <div style="background-color:#011947;width: 100%; height: 40px;border-radius:5px 5px 0px 0px;top: 0;">
                     <h5 style="padding-top: 5px; text-align: center;color: white;">Focus</h5>
                 </div>
-                <div style="background-color: white;height: 350px;">
+                <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
                     @if(count($articles)>0)
                         @foreach($articles->take(1) as $article)
                             <div class="articlebodynew" style="padding: 10px;">
-                                <h5 style="color:green">{{$article->title}}</h5>
+                                <h5>{{$article->title}}</h5>
                                 <div class="col-md-12 p-0"><img class="articlecover" style="margin-bottom: 10px;"
                                                                 src="{{asset('/storage/articles_images/siteuploads/'.$article->article_image)}}">
                                 </div>
@@ -107,11 +107,11 @@ use Illuminate\Support\Facades\Crypt;?>
                 <div style="background-color:#641E16;width: 100%; height: 40px;border-radius:5px 5px 0px 0px;top: 0;">
                     <h5 style="padding-top: 5px; text-align: center;color: white;">Highlights</h5>
                 </div>
-                <div style="background-color: white;height: 350px">
+                <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
                     @if(count($focuses)>0)
                         @foreach($focuses->take(1) as $focuse)
                             <div style="padding:10px;">
-                                <div style="width: 100%;color: blue;font-size: 16px;">{{ $focuse->title }}</div>
+                                <div style="width: 100%;font-size: 16px;">{{ $focuse->title }}</div>
                                 <div style="text-align: center;width: 100%;">{!! $focuse->body !!}</div>
                             </div>
 
@@ -133,7 +133,7 @@ use Illuminate\Support\Facades\Crypt;?>
                             @endif
                         @endforeach
                     @else
-                        <p>No focuses here</p>
+                        <p>No post here</p>
                     @endif
                 </div>
             </div>
@@ -143,7 +143,7 @@ use Illuminate\Support\Facades\Crypt;?>
                 <div style="background-color: black;width: 100%; height: 40px;border-radius:5px 5px 0px 0px;top: 0;">
                     <h5 style="text-align: center;color: white;padding-top:5px;">Events</h5>
                 </div>
-                <div style="background-color: white;height: 350px">
+                <div style="background-color: white;height: 350px;">
                     @if(count($calender)>0)
                         @foreach($calender->take(1) as $calenders)
                             <div style="padding: 10px">
@@ -182,7 +182,7 @@ use Illuminate\Support\Facades\Crypt;?>
                     <hr style="background-color:#F5F5F5;height: 10px;margin: 0">
 
                     <div style="bottom: 0">
-                        <iframe width="100%" height="62%" style="border: none" allowFullScreen
+                        <iframe width="100%" height="57%" style="border: none" allowFullScreen
                                 src="https://www.youtube.com/embed/yzX4NTRoLVI?rel=0">
                         </iframe>
                     </div>

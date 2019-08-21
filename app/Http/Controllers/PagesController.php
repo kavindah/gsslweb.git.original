@@ -449,6 +449,21 @@ class PagesController extends Controller
         return view('Members.associatemembers');
     }
 
+    public function studentmembers()
+    {
+        return view('Members.studentmembers');
+    }
+
+    public function institutionalmembers()
+    {
+        return view('Members.institutionalmembers');
+    }
+
+    public function foreignlifemembers()
+    {
+        return view('Members.foreignlifemembers');
+    }
+
     public function calendar_event_create()
     {
         return view('calendar.create');

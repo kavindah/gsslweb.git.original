@@ -42,14 +42,7 @@
                     </div><hr><br>
 
                      <a href="/user_edit/{{Auth::user()->id}}/edit" class="btn btn-success">Edit</a>
-                    
-                   
-                    
-                    
-               
 
-    
-    
                 </div>
             </div>
         </div>

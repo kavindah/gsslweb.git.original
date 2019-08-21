@@ -18,18 +18,33 @@ use Illuminate\Support\Facades\Crypt;?>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="siteimages/1.jpg" alt="First slide" height="300px">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(46, 51, 56, 0.4)!important;">
+                                <h5> Feldspar quarry, Kaikawela, Matale, Sri Lanka</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="siteimages/2.jpg" alt="Second slide" height="300px">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(46, 51, 56, 0.4)!important;">
+                                <h5>Migmatite, Dambulla, Sri Lanka</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="siteimages/3.jpg" alt="Third slide" height="300px">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(46, 51, 56, 0.4)!important;">
+                                <h5>A pegmatitic vein cross cutting Bt-gneiss</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="siteimages/4.jpg" alt="Third slide" height="300px">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(46, 51, 56, 0.4)!important;">
+                                <h5>A felsic dyke cross cutting Hbi-bt-gneiss</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="siteimages/5.jpg" alt="Third slide" height="300px">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(46, 51, 56, 0.4)!important;">
+                                <h5>Weathered serpentinite, Ussangoda, Sri Lanka</h5>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

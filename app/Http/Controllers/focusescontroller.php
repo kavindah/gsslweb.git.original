@@ -37,7 +37,6 @@ class focusescontroller extends Controller
     public function store(Request $request)
     {
          $this->validate($request,[
-            'title'=>'required',
             'body'=>'required'
         ]);
         $focuses = new focuses;
@@ -82,14 +81,13 @@ class focusescontroller extends Controller
     public function update(Request $request, $id)
     {
                $this->validate($request,[
-            'title'=>'required',
             'body'=>'required'
         ]);
   
     $focuses=focuses::find($id);
         $focuses->title=$request->input('title');
         $focuses->body=$request->input('body');
-        $focuses->user_id=auth()->user()->id;
+//        $focuses->user_id=auth()->user()->id;
         $focuses->save();
 
     return redirect('/')->with('success','focuses Updated');
@@ -103,7 +101,7 @@ class focusescontroller extends Controller
      */
     public function destroy($id)
     {
-            $focuses=focuses::find($id);
+      $focuses=focuses::find($id);
       $focuses->delete();
       return redirect('/')->with('success','Focuses deleted');
     }

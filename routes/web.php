@@ -267,6 +267,9 @@ Route::get('sleso_past_members_create',['middleware'=>['auth','admin'],'uses'=>'
 Route::resource('focuses','focusescontroller');
 Route::get('focuses_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@focuses_create']);
 
+Route::resource('highlights','highlightscontroller');
+Route::get('highlights_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@highlights_create']);
+
 Route::resource('journal_submit','journalsubmitcontroller');
 Route::get('journal_submit',['middleware'=>['auth','web'],'uses'=>'PagesController@journal_submit']);
 
@@ -278,7 +281,8 @@ Route::get('/',function(){
     $articles=Article::orderBy('created_at','desc')->paginate(3);
      $calender=calender::orderBy('created_at','desc')->paginate(3);
      $focuses=focuses::orderBy('created_at','desc')->get();
-       return view('index',compact('articles','calender','focuses'));
+     $highlights = \App\highlights::OrderBy('created_at','desc')->get();
+       return view('index',compact('articles','calender','focuses','highlights'));
 });
 
 Route::get('/article_published',function(){

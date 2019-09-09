@@ -73,31 +73,35 @@ use Illuminate\Support\Facades\Crypt;?>
         <div class="row">
             <div class="col-md-4">
                 <div style="background-color:#011947;width: 100%; height: 40px;border-radius:5px 5px 0px 0px;top: 0;">
-                    <h5 style="padding-top: 10px; text-align: center;color: white;">Focus</h5>
+                    <h5 style="padding-top: 10px; text-align: center;color: white;">Highlights</h5>
                 </div>
                 <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
-                    @if(count($articles)>0)
-                        @foreach($articles->take(1) as $article)
-                            <div class="articlebodynew" style="padding: 10px;">
-                                <h5>{{$article->title}}</h5>
-                                <div class="col-md-12 p-0"><img class="articlecover" style="margin-bottom: 5px;"
-                                                                src="{{asset('/storage/articles_images/siteuploads/'.$article->article_image)}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <div class="articletext">{!!$article->body!!}
-                                        </div>
-                                        <br>
-                                        <a href="/articles/{{$article->id}}"
-                                           style="font-size: 16px; color: #0040FF; cursor: pointer;float: left;">continue
-                                            reading..</a>
-                                    </div>
-                                </div>
+                    @if(count($highlights)>0)
+                        @foreach($highlights->take(1) as $highlight)
+                            <div style="padding:10px;">
+                                {{--<div style="width: 100%;font-size: 16px;">{{ $focuse->title }}</div>--}}
+                                <div style="text-align: center;width: 100%;">{!! $highlight->body !!}</div>
                             </div>
+
+                            @if(!Auth::guest())
+                                @if(Auth::user()->id==$highlight->user_id)
+                                    <div class="row">
+                                        <div class="col-md-5">
+
+                                            <a href="/highlights/{{$highlight->id}}/edit" class="btn membtn">Edit</a>
+                                        </div>
+                                        <div class="col-md-5">
+                                            {!!Form::open(['action'=>['highlightscontroller@destroy',$highlight->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
+                                            {{Form::hidden('_method','DELETE')}}
+                                            {{Form::submit('Delete',['class'=>'btn-danger','style'=>'width:95%;'])}}
+                                            {!!Form::close()!!}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endif
                         @endforeach
                     @else
-                        <p>No articles here</p>
+                        <p>No highlight here</p>
                     @endif
                 </div>
             </div>
@@ -105,13 +109,12 @@ use Illuminate\Support\Facades\Crypt;?>
 
             <div class="col-md-4">
                 <div style="background-color:#641E16;width: 100%; height: 40px;border-radius:5px 5px 0px 0px;top: 0;">
-                    <h5 style="padding-top: 10px; text-align: center;color: white;">Highlights</h5>
+                    <h5 style="padding-top: 10px; text-align: center;color: white;">Focus</h5>
                 </div>
                 <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
                     @if(count($focuses)>0)
                         @foreach($focuses->take(1) as $focuse)
                             <div style="padding:10px;">
-                                <div style="width: 100%;font-size: 16px;">{{ $focuse->title }}</div>
                                 <div style="text-align: center;width: 100%;">{!! $focuse->body !!}</div>
                             </div>
 

@@ -19,10 +19,10 @@
 		{{ Form::textarea('body','',['class'=>'form-control my-editor', 'placeholder'=>'Abstract'])}}
 	</div>
 
-		<div class="form-control">
-		<label>Cover Image:</label>
-		{{Form::file('article_image')}}
-	</div>
+		{{--<div class="form-control">--}}
+		{{--<label>Cover Image:</label>--}}
+		{{--{{Form::file('article_image')}}--}}
+	{{--</div>--}}
 
 	<br>
 

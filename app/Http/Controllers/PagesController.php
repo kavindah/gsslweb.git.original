@@ -474,6 +474,11 @@ class PagesController extends Controller
         return view('focuses.create');
     }
 
+    public function highlights_create()
+    {
+        return view('highlights.create');
+    }
+
     public function journal_submit()
     {
         return view('journal.browse.submit.index');

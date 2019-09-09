@@ -35,8 +35,14 @@
                         </a>
                         <hr>
 
-                        <div>Highlights</div>
-                        <a href="focuses_create" class="btn btn-success" style="margin: 10px">Add new Highlights</a>
+
+                        <div>Highlight</div>
+                        <a href="highlights_create" class="btn btn-success" style="margin: 10px">Add new Highlight</a>
+                        <hr>
+
+
+                        <div>Focus</div>
+                        <a href="focuses_create" class="btn btn-success" style="margin: 10px">Add new Focus</a>
                         <hr>
 
 

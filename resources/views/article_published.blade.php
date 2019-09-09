@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Crypt; ?>
                         @if($article->article_image)
                         <div data-wow-delay="0.5s" class="animated fadeInUp delay-7s">
                             <div style="width:450px;border-radius: 5px;float:left;margin-left: 7%;margin-top: 2%;height: 400px;background-color: white; padding: 10px">
-                                <div class="col-md-12"><img class="articlecover" style="height: 70%"
-                                                            src="{{asset('/storage/articles_images/siteuploads/'.$article->article_image)}}">
-                                </div>
+                                {{--<div class="col-md-12"><img class="articlecover" style="height: 70%"--}}
+                                                            {{--src="{{asset('/storage/articles_images/siteuploads/'.$article->article_image)}}">--}}
+                                {{--</div>--}}
                                 <h4 style="color:green;margin-top: 10px">{{$article->title}}</h4>
                                 <div class="row">
                                     <div class="col-md-12">

@@ -270,6 +270,9 @@ Route::get('focuses_create',['middleware'=>['auth','admin'],'uses'=>'PagesContro
 Route::resource('highlights','highlightscontroller');
 Route::get('highlights_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@highlights_create']);
 
+Route::resource('journal_editorialboard','editorialboardcontroller');
+Route::get('journal_editorialboard_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@journal_editorialboard_create']);
+
 Route::resource('journal_submit','journalsubmitcontroller');
 Route::get('journal_submit',['middleware'=>['auth','web'],'uses'=>'PagesController@journal_submit']);
 
@@ -288,6 +291,11 @@ Route::get('/',function(){
 Route::get('/article_published',function(){
 	$articles=Article::orderBy('created_at','desc')->paginate(6);
        return view('article_published')->with('articles',$articles);
+});
+
+Route::get('/journal_editorialboard',function(){
+	$editors=\App\editorialboard::orderBy('created_at','desc')->paginate(10);
+       return view('journal.editorialboard')->with('editors',$editors);
 });
 
 

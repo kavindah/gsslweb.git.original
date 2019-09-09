@@ -85,6 +85,7 @@
                             Annual Pleasure Trip Title</a>
                         <hr>
                         <div>JGSSL</div>
+                        <a href="journal_editorialboard_create" class="btn btn-success" style="margin: 10px">Add Editor(Editorial Board)</a>
                         <a href="volume_create" class="btn btn-success" style="margin: 10px">Add Volume</a>
                         <a href="journal_create" class="btn btn-success" style="margin: 10px">Create new Volume of
                             Journal</a>

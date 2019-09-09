@@ -18,6 +18,37 @@
 	</div>
 		</div>
 		<div class="col-md-9 m-0 p-0">
+
+			<div style="background-color: #ffffff;padding: 20px;">
+				<div><h3>Editorial Board</h3></div><hr>
+
+				@if(count($editors)>0)
+					@foreach($editors as $editor)
+						{!! $editor->body !!}
+
+						@if(!Auth::guest())
+							@if(Auth::user()->id==$editor->user_id)
+								<div class="row">
+									<div class="col-md-3">
+
+										<a href="/journal_editorialboard/{{$editor->id}}/edit" class="btn membtn">Edit</a>
+									</div>
+									<div class="col-md-3">
+										{!!Form::open(['action'=>['editorialboardcontroller@destroy',$editor->id],'method'=>'POST', 'class'=>'pull-right','onsubmit' => 'return ConfirmDelete()'])!!}
+										{{Form::hidden('_method','DELETE')}}
+										{{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}
+										{!!Form::close()!!}
+									</div>
+								</div>
+							@endif
+						@endif <hr>
+					@endforeach
+					{{$editors->links()}}
+				@else
+					<p>No editors found</p>
+				@endif
+			</div>
+			<br><br>
 		</div>
 
 	</div>

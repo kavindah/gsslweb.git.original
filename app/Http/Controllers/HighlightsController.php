@@ -97,7 +97,7 @@ class HighlightsController extends Controller
      * @param  \App\highlights  $highlights
      * @return \Illuminate\Http\Response
      */
-    public function destroy(highlights $highlights)
+    public function destroy($highlights)
     {
         $focuses=highlights::find($highlights);
         $focuses->delete();

@@ -478,6 +478,10 @@ class PagesController extends Controller
     {
         return view('highlights.create');
     }
+    public function journal_editorialboard_create()
+    {
+        return view('editorialboard.create');
+    }
 
     public function journal_submit()
     {

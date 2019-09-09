@@ -53,6 +53,7 @@ class ArticleController extends Controller
     $articles=new Article;
     $articles->title=$request->input('title');
     $articles->body=$request->input('body');
+    $articles->cover_image=$request->input('cover_image');
     $articles->user_id=auth()->user()->id;
 //    $articles->article_image=$fileNameToStore;
     $articles->save();
@@ -108,6 +109,7 @@ class ArticleController extends Controller
     
     $articles->title=$request->input('title');
     $articles->body=$request->input('body');
+    $articles->cover_image=$request->input('cover_image');
     $articles->user_id=auth()->user()->id;
     $articles->save();
 

@@ -58,6 +58,7 @@
                         <div style="font-weight: bold;margin-bottom: 20px">{{$news->title}}</div>
 
                         {!!$news->body!!}
+                        <hr>
                     </div>
                     @if(!Auth::guest())
                         @if(Auth::user()->id==$news->user_id)
@@ -73,6 +74,7 @@
 
                         @endif
                     @endif
+
                 @endforeach
                 {{$newss->render()}}
             @else

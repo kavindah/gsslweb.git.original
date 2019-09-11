@@ -42,6 +42,18 @@ a.fancybox:hover img {
     float: right;
 }
 
+::placeholder { /* Firefox, Chrome, Opera */
+    color: blue;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: orange;
+}
+
 .gssl {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-right: 10px;

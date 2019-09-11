@@ -4,7 +4,7 @@
 @section('contents')
 <a href="/home" class="btn membtn" style="width: 20%;"><span class="glyphicon glyphicon-chevron-left"></span> Go To Dashboard</a><br>
 	<h3>Journal Submission</h3>
-	
+	<h2 style="color: red">Temporary unavailable of this feature </h2>
 	{!! Form::open(['action'=>'journalsubmitcontroller@store','method'=>'POST','enctype'=>'multipart/form-data' ]) !!}
 	<div class="form-group">
 		

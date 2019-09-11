@@ -77,7 +77,7 @@ class userregistercontroller extends Controller
             $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $extension=$request->file('profile_photo')->getClientOriginalExtension();
             $fileNameToStore=$filename.'_'.time().'.'.$extension;
-            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStore);
+            $request->file('profile_photo')->move(public_path('profile_photo'),$fileNameToStore);
         }
 
         $user->profile_photo = $fileNameToStore;

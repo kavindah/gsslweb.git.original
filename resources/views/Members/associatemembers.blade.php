@@ -31,7 +31,7 @@
                             <div style="color:black;">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$associatemember->profile_photo)}}">
+                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/profile_photo/'.$associatemember->profile_photo)}}">
                                     </div>
                                     <div class="col-md-6">
                                         {{$associatemember->surname_options}}.&nbsp;{{$associatemember->surname}} <br>

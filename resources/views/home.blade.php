@@ -16,7 +16,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                    <img width="100%" height="130px;" style="border: solid;border-radius: 5px;" src="{{asset('/storage/profile_photo/'.Auth::user()->profile_photo)}}"></div>
+                    <img width="100%" height="130px;" style="border: solid;border-radius: 5px;" src="{{asset('/profile_photo/'.Auth::user()->profile_photo)}}"></div>
                     </div>
                         <br>
 

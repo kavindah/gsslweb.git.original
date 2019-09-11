@@ -39,23 +39,22 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title'=>'required|max:255|min:5'
         ]);
-//         if($request->hasFile('article_image')){
-//                $filenameWithExt=$request->file('article_image')->getClientOriginalName();
-//                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-//                $extension=$request->file('article_image')->getClientOriginalExtension();
-//                $fileNameToStore=$filename.'_'.time().'.'.$extension;
-//                $request->file('article_image')->storeAs('public\articles_images\siteuploads',$fileNameToStore);
-//           }else{
-//            $fileNameToStore='noimage.jpg';
-//           }
+         if($request->hasFile('article_image')){
+                $filenameWithExt=$request->file('article_image')->getClientOriginalName();
+                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+                $extension=$request->file('article_image')->getClientOriginalExtension();
+                $fileNameToStore=$filename.'_'.time().'.'.$extension;
+                $request->file('article_image')->move(public_path('articles_images\siteuploads'),$fileNameToStore);
+           }else{
+            $fileNameToStore='noimage.jpg';
+           }
 
         
     $articles=new Article;
     $articles->title=$request->input('title');
     $articles->body=$request->input('body');
-    $articles->cover_image=$request->input('cover_image');
     $articles->user_id=auth()->user()->id;
-//    $articles->article_image=$fileNameToStore;
+    $articles->article_image=$fileNameToStore;
     $articles->save();
 
     return redirect('/article_create')->with('success','Article uploaded');
@@ -97,19 +96,18 @@ class ArticleController extends Controller
     {
         
          $articles=Article::find($id);
-//        if($request->hasFile('article_image')){
-//            $filenameWithExt=$request->file('article_image')->getClientOriginalName();
-//            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
-//            $extension=$request->file('article_image')->getClientOriginalExtension();
-//            $fileNameToStore=$filename.'_'.time().'.'.$extension;
-//            $request->file('article_image')->storeAs('public\articles_images\siteuploads',$fileNameToStore);
-//            $articles->article_image=$fileNameToStore;
-//        }
+        if($request->hasFile('article_image')){
+            $filenameWithExt=$request->file('article_image')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('article_image')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('article_image')->move(public_path('articles_images\siteuploads'),$fileNameToStore);
+            $articles->article_image=$fileNameToStore;
+        }
 
     
     $articles->title=$request->input('title');
     $articles->body=$request->input('body');
-    $articles->cover_image=$request->input('cover_image');
     $articles->user_id=auth()->user()->id;
     $articles->save();
 

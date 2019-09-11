@@ -30,8 +30,8 @@
                         <div style="text-align: justify;width: 95%;">
                             <div style="color:black;">
                                 <div class="row">
-                                    <div class="col-md-1">
-                                        <img style="width: 50px;height: 50px;border-radius: 50px;margin-right: 20px" src="{{asset('/storage/profile_photo/'.$studentmember->profile_photo)}}">
+                                    <div class="col-md-2">
+                                        <img style="width: 80px;height: 80px;border-radius: 80px;" src="{{asset('/storage/profile_photo/'.$studentmember->profile_photo)}}">
                                     </div>
                                     <div class="col-md-6">
                                         {{$studentmember->surname_options}}.&nbsp;{{$studentmember->surname}} <br>

@@ -219,6 +219,9 @@ class MemberReqController extends Controller
                 $user->office_tp = Input::input('office_tp');
                 $user->office_address = Input::input('office_address');
                 $user->profile_photo = Input::input('profile_photo');
+                $user->surname_options = Input::input('surname_options');
+                $user->surname = Input::input('surname');
+                $user->office_email = Input::input('office_email');
 
                 $user->password = Input::input('password');
                 $user->save();

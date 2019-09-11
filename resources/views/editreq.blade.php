@@ -403,6 +403,8 @@
             {{ Form::text('office_tp',$abc->office_tp,['class'=>'form-control','style'=>'display:none','required'])}}
             {{ Form::text('office_address',$abc->office_address,['class'=>'form-control','style'=>'display:none','required'])}}
             {{ Form::text('profile_photo',$abc->profile_photo,['class'=>'form-control','style'=>'display:none','required'])}}
+            {{ Form::text('surname_options',$abc->surname_options,['class'=>'form-control','style'=>'display:none','required'])}}
+            {{ Form::text('office_email',$abc->office_email,['class'=>'form-control','style'=>'display:none','required'])}}
 
 
             {{ Form::text('membershipno',$abc->membershipno,['class'=>'form-control','required'])}}

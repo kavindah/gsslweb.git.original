@@ -417,37 +417,37 @@ Route::get('/iesocom',function(){
 });
 
 Route::get('/lifemembers',function(){
-    $lifemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'lm')->where('status','confirm');
+    $lifemembers=DB::table('users')->get()->where('requested_membership', 'lm');
     return view('Members.lifemembers')->with('lifemembers',$lifemembers);
 });
 
 Route::get('/ordinarymembers',function(){
-    $ordinarymember=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'om')->where('status','confirm');
+    $ordinarymember=DB::table('users')->get()->where('requested_membership', 'om');
     return view('Members.ordinarymembers')->with('ordinarymembers',$ordinarymember);
 });
 
 Route::get('/forignmembers',function(){
-    $forignmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'fm')->where('status','confirm');
+    $forignmembers=DB::table('users')->get()->where('requested_membership', 'fm');
     return view('Members.forignmembers')->with('forignmembers',$forignmembers);
 });
 
 Route::get('/associatemembers',function(){
-    $associatemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'am')->where('status','confirm');
+    $associatemembers=DB::table('users')->get()->where('requested_membership', 'am');
     return view('Members.associatemembers')->with('associatemembers',$associatemembers);
 });
 
 Route::get('/studentmembers',function(){
-    $studentmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'sm')->where('status','confirm');
+    $studentmembers=DB::table('users')->get()->where('requested_membership', 'sm');
     return view('Members.studentmembers')->with('studentmembers',$studentmembers);
 });
 
 Route::get('/institutionalmembers',function(){
-    $institutionalmembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'im')->where('status','confirm');
+    $institutionalmembers=DB::table('users')->get()->where('requested_membership', 'im');
     return view('Members.institutionalmembers')->with('institutionalmembers',$institutionalmembers);
 });
 
 Route::get('/foreignlifemembers',function(){
-    $foreignlifemembers=DB::table('member_reqs')->orderBy('membershipno','asc')->get()->where('requested_membership', 'flm')->where('status','confirm');
+    $foreignlifemembers=DB::table('users')->get()->where('requested_membership', 'flm');
     return view('Members.foreignlifemembers')->with('foreignlifemembers',$foreignlifemembers);
 });
 

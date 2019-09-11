@@ -52,45 +52,14 @@
                         @endif
 
                     @endforeach
-                    <div style="margin-top: 60px">{{$journals->render()}}</div>
+
+                    <div style="margin-top: 10px;float: right;margin-right: 75%">{{$journals->render()}}</div>
 
                 @else
                     <p>No Journal found</p>
                 @endif
             </div>
         </div>
-    </div>
-    {{--@if(count($journals)>0)--}}
-    {{--@foreach($journals as $journal)--}}
-    {{--<a style="text-decoration:none;color: black;" href="volume/{{$journal->id}}">--}}
-    {{--<div style="font-size:15px; ">--}}
-    {{--<div class="articlebody journalbody" style="width: 95%;">--}}
-    {{--<b>{{$journal->volume}}</b>--}}
-    {{--<br>--}}
-    {{--<div style="color:#7F8C8D; font-size:10px;">{{$journal->created_at}}</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</a>--}}
-    {{--@if(!Auth::guest())--}}
-    {{--@if(Auth::user()->id==$journal->user_id)--}}
-
-    {{--<a href="/volume/{{$journal->id}}/edit" class="btn btn-dark">Edit</a>--}}
-
-    {{--{!!Form::open(['action'=>['volumecontroller@destroy',$journal->id],'method'=>'POST', 'class'=>'pull-right'])!!}--}}
-    {{--{{Form::hidden('_method','DELETE')}}--}}
-    {{--{{Form::submit('Delete',['class'=>'btn btn-danger','style'=>'width:95%;'])}}--}}
-    {{--{!!Form::close()!!}--}}
-
-    {{--@endif--}}
-    {{--@endif--}}
-    {{--</div>--}}
-    {{--<br><br>--}}
-    {{--</div>--}}
-
-    {{--@endforeach--}}
-    {{--@else--}}
-    {{--<p>No Journal found</p>--}}
-    {{--@endif--}}
 
     @include('layouts.footer')
 @endsection

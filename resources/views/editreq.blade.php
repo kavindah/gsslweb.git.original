@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-2" style="margin: 10px;"><img width="100%" height="130px;"
                                                                          style="border: solid;border-radius: 5px;"
-                                                                         src="{{asset('/storage/profile_photo/'.$abc->profile_photo)}}">
+                                                                         src="{{asset('/profile_photo/'.$abc->profile_photo)}}">
                         </div>
                         <div class="col-md-9">
                             <label style="color: white; margin-top: 30px;font-size: 25px;">{{$abc->surname}}</label><br>
@@ -386,7 +386,7 @@
 
 
         <div class="col-md-5" style="margin: 10px;"><img width="100%" style="border: solid;border-radius: 5px;"
-                                         src="{{asset('/storage/receipt/'.$abc->ceceipt)}}">
+                                         src="{{asset('/receipt/'.$abc->ceceipt)}}">
         </div>
 
 

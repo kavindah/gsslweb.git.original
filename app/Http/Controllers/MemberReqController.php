@@ -80,20 +80,20 @@ class MemberReqController extends Controller
             $filenameWithExt=$request->file('profile_photo')->getClientOriginalName();
             $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $extension=$request->file('profile_photo')->getClientOriginalExtension();
-            $fileNameToStorePhoto=$filename.'_'.time().'.'.$extension;
-            $request->file('profile_photo')->storeAs('public\profile_photo',$fileNameToStorePhoto);
+            $fileNameToStoreProfilePhoto=$filename.'_'.time().'.'.$extension;
+            $request->file('profile_photo')->move(public_path('profile_photo'),$fileNameToStoreProfilePhoto);
         }else{
-            $fileNameToStore='noimage.jpg';
+            $fileNameToStoreProfilePhoto='noimage.jpg';
         }
 
         if ($request->hasFile('ceceipt')) {
             $filenameWithExt = $request->file('ceceipt')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('ceceipt')->getClientOriginalExtension();
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $request->file('ceceipt')->storeAs('public\receipt', $fileNameToStore);
+            $fileNameToReceiptStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('ceceipt')->move(public_path('receipt'), $fileNameToReceiptStore);
         } else {
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToReceiptStore = 'noimage.jpg';
         }
         $memberReq = new MemberReq;
         $password = Input::get("password");
@@ -114,14 +114,14 @@ class MemberReqController extends Controller
             $memberReq->home_email = Input::get("home_email");
             $memberReq->preferred_address = Input::get("preferred_address");
             //$memberReq->preferred_home_address=Input::get("preferred_home_address",false);
-            $memberReq->profile_photo = $fileNameToStorePhoto;
+            $memberReq->profile_photo = $fileNameToStoreProfilePhoto;
 
             $memberReq->requested_membership = Input::get("requested_membership");
 
             $memberReq->addmission_transfer_from = Input::get("addmission_transfer_from", false);
             $memberReq->addmission_transfer_to = Input::get("addmission_transfer_to", false);
             $memberReq->member_before = Input::get("member_before");
-            $memberReq->ceceipt = $fileNameToStore;
+            $memberReq->ceceipt = $fileNameToReceiptStore;
             $memberReq->econ = Input::get("econ", false);
             $memberReq->env = Input::get("env", false);
             $memberReq->geophy = Input::get("geophy", false);

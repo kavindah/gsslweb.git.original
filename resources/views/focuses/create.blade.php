@@ -6,11 +6,12 @@
 	<h2>Add New Focuses</h2>
 	
 	{!! Form::open(['action'=>'focusescontroller@store','method'=>'POST','enctype'=>'multipart/form-data' ]) !!}
-	{{--<div class="form-group">--}}
 
-		{{--{{ Form::label('title','Title')}}--}}
-		{{--{{ Form::text('title','',['class'=>'form-control', 'placeholder'=>'Title'])}}--}}
-	{{--</div>--}}
+	<div class="form-control">
+		<label>Cover Image:</label>
+		{{Form::file('focus_image')}}
+	</div>
+
 	<div class="form-group">
 		{{ Form::label('body','Body')}}
 		{{ Form::textarea('body','',['class'=>'form-control my-editor', 'placeholder'=>'Body'])}}

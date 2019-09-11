@@ -78,9 +78,14 @@ use Illuminate\Support\Facades\Crypt;?>
                 <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
                     @if(count($highlights)>0)
                         @foreach($highlights->take(1) as $highlight)
-                            <div style="padding:10px;">
+                            <div style="padding-top: 1px;">
                                 {{--<div style="width: 100%;font-size: 16px;">{{ $focuse->title }}</div>--}}
-                                <div style="text-align: center;width: 100%;">{!! $highlight->body !!}</div>
+                                <div style="text-align: center;width: 100%;">
+                                    <img src="{{asset('highlight_images/'.$highlight->highlight_image)}}" width="100%">
+                                    <div style="padding: 5px 10px 10px 10px">
+                                        {!! $highlight->body !!}
+                                    </div>
+                                </div>
                             </div>
 
                             @if(!Auth::guest())
@@ -114,8 +119,13 @@ use Illuminate\Support\Facades\Crypt;?>
                 <div style="background-color: white;height: 350px;overflow:hidden;overflow-y: auto">
                     @if(count($focuses)>0)
                         @foreach($focuses->take(1) as $focuse)
-                            <div style="padding:10px;">
-                                <div style="text-align: center;width: 100%;">{!! $focuse->body !!}</div>
+                            <div style="padding:1px;">
+                                <div style="text-align: center;width: 100%;">
+                                    <img src="{{asset('focus_images/'.$focuse->focus_image)}}" width="100%">
+                                    <div style="padding: 5px 10px 10px 10px">
+                                        {!! $focuse->body !!}
+                                    </div>
+                                </div>
                             </div>
 
                             @if(!Auth::guest())

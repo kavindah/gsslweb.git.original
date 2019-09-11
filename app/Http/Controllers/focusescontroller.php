@@ -39,9 +39,20 @@ class focusescontroller extends Controller
          $this->validate($request,[
             'body'=>'required'
         ]);
+
+        if($request->hasFile('focus_image')){
+        $filenameWithExt=$request->file('focus_image')->getClientOriginalName();
+        $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+        $extension=$request->file('focus_image')->getClientOriginalExtension();
+        $fileNameToStore=$filename.'_'.time().'.'.$extension;
+        $request->file('focus_image')->move(public_path('focus_images'),$fileNameToStore);
+    }else{
+        $fileNameToStore='noimage.jpg';
+    }
+
         $focuses = new focuses;
         $focuses->user_id=auth()->user()->id;
-        $focuses->title=$request->input('title');
+        $focuses->focus_image=$fileNameToStore;
         $focuses->body=$request->input('body');
         $focuses->save();
 
@@ -84,8 +95,16 @@ class focusescontroller extends Controller
             'body'=>'required'
         ]);
   
-    $focuses=focuses::find($id);
-        $focuses->title=$request->input('title');
+        $focuses=focuses::find($id);
+        if($request->hasFile('focus_image')) {
+            $filenameWithExt = $request->file('focus_image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('focus_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('focus_image')->move(public_path('focus_images'), $fileNameToStore);
+            $focuses->focus_image=$fileNameToStore;
+        }
+
         $focuses->body=$request->input('body');
 //        $focuses->user_id=auth()->user()->id;
         $focuses->save();

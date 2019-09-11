@@ -26,7 +26,7 @@ error_reporting(-1);
     <div class="row" style="background-color: #ffffff;height: auto;padding: 20px;width: 100%;margin: 0 2.5px 0 2.5px ;background-image: url({{url('siteimages/homeback.jpg')}});">
         <!-- background-image: url('siteimages/back.jpg'); -->
 
-        <div class="col-md-2 p-0 m-0"><img src="{{asset('siteimages/logonew.png')}}" width="90%" class="navlogo"></div>
+        <div class="col-md-2 p-0 m-0"><a href="/"><img src="{{asset('siteimages/logonew.png')}}" width="90%" class="navlogo"></a></div>
         <div class="col-md-2 p-0 m-0"><div class="gssl">GSSL</div></div>
         <div class="col-md-6 p-0 m-0"> <div class="webtext">Geological Society of Sri Lanka</div></div>
 

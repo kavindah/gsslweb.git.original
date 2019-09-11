@@ -39,8 +39,20 @@ class HighlightsController extends Controller
         $this->validate($request,[
             'body'=>'required'
         ]);
+
+        if($request->hasFile('highlight_image')){
+            $filenameWithExt=$request->file('highlight_image')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('highlight_image')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('highlight_image')->move(public_path('highlight_images'),$fileNameToStore);
+        }else{
+            $fileNameToStore='noimage.jpg';
+        }
+
         $highlights = new highlights();
         $highlights->user_id=auth()->user()->id;
+        $highlights->highlight_image=$fileNameToStore;
         $highlights->body=$request->input('body');
         $highlights->save();
 
@@ -79,11 +91,21 @@ class HighlightsController extends Controller
      */
     public function update(Request $request, $highlights)
     {
+        $highlights=highlights::find($highlights);
+
         $this->validate($request,[
             'body'=>'required',
         ]);
 
-        $highlights=highlights::find($highlights);
+        if($request->hasFile('highlight_image')){
+            $filenameWithExt=$request->file('highlight_image')->getClientOriginalName();
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('highlight_image')->getClientOriginalExtension();
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            $request->file('highlight_image')->move(public_path('highlight_images'),$fileNameToStore);
+            $highlights->highlight_image=$fileNameToStore;
+        }
+
         $highlights->body=$request->input('body');
         $highlights->user_id=auth()->user()->id;
         $highlights->save();

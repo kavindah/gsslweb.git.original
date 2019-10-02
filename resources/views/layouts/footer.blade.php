@@ -61,6 +61,7 @@
                 <a href="https://www.facebook.com/groups/gssl2014/" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-rss"></a>
+                <a href="https://en.wikipedia.org/wiki/Geological_Society_of_Sri_Lanka" class="fa" style="width: 30px;height: 30px;border-radius: 30px;background-color: black;text-align: center;padding-left:5px;">&#xf266;</a>
 
                 <div>Site Visitors:</div>
                 <div id="sfcfb93a7wruglgwflu4p12t6683xrymraj"></div>

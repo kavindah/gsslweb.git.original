@@ -67,6 +67,16 @@ class PagesController extends Controller
         return view('news.create');
     }
 
+    public function general_public()
+    {
+        return view('generalpublic.index');
+    }
+
+    public function general_public_create()
+    {
+        return view('generalpublic.create');
+    }
+
     public function activities_home()
     {
         return view('activities.index_home');

@@ -61,6 +61,10 @@
                         <a href="news_create" class="btn btn-success" style="margin: 10px">Add new News</a>
                         <hr>
 
+                        <div>General Public</div>
+                        <a href="general_public_create" class="btn btn-success" style="margin: 10px">Add new General Public</a>
+                        <hr>
+
                         <div>Publications</div>
                         <a href="abstract_volume_create" class="btn btn-secondary" style="margin: 10px">Add new Abstract
                             Volume Title</a>

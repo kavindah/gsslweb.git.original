@@ -58,6 +58,8 @@ error_reporting(-1);
 
                              <li><a href="{{url('news')}}" class="custom-active {{ request()->is('news') ? 'active' : '' }}">News</a></li>
 
+                             <li><a href="{{url('general_public')}}" class="custom-active {{ request()->is('general_public') ? 'active' : '' }}">General Public</a></li>
+
                             <li><a href="{{url('publications')}}" class="custom-active {{ request()->is('publications') ? 'active' : '' }}">Publications</a></li>
 
                             <li><a href="{{url('activities_home')}}" class="custom-active {{ request()->is('activities_home') ? 'active' : '' }}">Activities</a></li>

@@ -42,6 +42,7 @@ Route::get('/','PagesController@index');
 Route::get('/article_published','PagesController@article_published');
 Route::get('/members','PagesController@members');
 Route::get('/news','PagesController@news');
+Route::get('/general_public','PagesController@general_public');
 Route::get('/journal_editorialboard','PagesController@journal_editorialboard');
 Route::get('/journal_authorguidlines','PagesController@journal_authorguidlines');
 Route::get('/journal_browse','PagesController@journal_browse');
@@ -178,6 +179,9 @@ Route::get('pw_vitanage_memorial_scholarship_create',['middleware'=>['auth','adm
 
 Route::resource('news','newscontroller');
 Route::get('news_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@news_create']);
+
+Route::resource('general_public','generalpubliccontroller');
+Route::get('general_public_create',['middleware'=>['auth','admin'],'uses'=>'PagesController@general_public_create']);
 
 
 Route::resource('abstract_volume','abvolumecontroller');
@@ -359,6 +363,11 @@ Route::get('/pw_vitanage_memorial_scholarship',function(){
 Route::get('/news',function(){
  $news=news::orderBy('created_at','desc')->paginate(10);
         return view('news.index')->with('newss',$news);
+});
+
+Route::get('/general_public',function(){
+ $generalpublics=\App\generalpublic::orderBy('created_at','desc')->paginate(10);
+        return view('generalpublic.index')->with('generalpublics',$generalpublics);
 });
 
 Route::get('/abstract_volume',function(){
